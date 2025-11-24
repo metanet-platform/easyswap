@@ -1,0 +1,24 @@
+{
+  "title": "Orderbuch",
+  "currentBsvPrice": "Aktueller BSV-Preis:",
+  "orderbookCapacity": "Orderbuch-Kapazität:",
+  "filled": "gefüllt",
+  "refresh": "Aktualisieren",
+  "available": "Verfügbar:",
+  "chunks": "Chunks:",
+  "orders": "Orders:",
+  "loadingOrderbook": "Lade Orderbuch...",
+  "noOrdersAvailable": "Keine Orders verfügbar",
+  "amount": "Betrag",
+  "maxPrice": "Max. Preis",
+  "bsvApprox": "BSV (~)",
+  "orderId": "Order-ID",
+  "orderSingular": "Order",
+  "orderPlural": "Orders",
+  "availableSuffix": "verfügbar",
+  "updated": "Aktualisiert",
+  "orderbookRefreshed": "Orderbuch aktualisiert",
+  "errors": {
+    "fetchFailed": "Fehler beim Laden des Orderbuchs"
+  }
+}

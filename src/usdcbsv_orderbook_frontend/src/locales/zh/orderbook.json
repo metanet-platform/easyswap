@@ -1,0 +1,24 @@
+{
+  "title": "订单簿",
+  "currentBsvPrice": "当前BSV价格：",
+  "orderbookCapacity": "订单簿容量：",
+  "filled": "已填充",
+  "refresh": "刷新",
+  "available": "可用：",
+  "chunks": "区块：",
+  "orders": "订单：",
+  "loadingOrderbook": "加载订单簿中...",
+  "noOrdersAvailable": "没有可用订单",
+  "amount": "金额",
+  "maxPrice": "最高价格",
+  "bsvApprox": "BSV（约）",
+  "orderId": "订单ID",
+  "orderSingular": "订单",
+  "orderPlural": "订单",
+  "availableSuffix": "可用",
+  "updated": "已更新",
+  "orderbookRefreshed": "订单簿已刷新",
+  "errors": {
+    "fetchFailed": "加载订单簿失败"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "title": "EasySwap Wallet",
+  "openWallet": "Apri Portafoglio",
+  "connectFirst": "Si prega di connettere prima il portafoglio",
+  "tabs": {
+    "swap": "Scambia",
+    "send": "Invia",
+    "receive": "Ricevi"
+  },
+  "networks": {
+    "ethereum": "Rete Ethereum",
+    "icp": "Internet Computer Protocol"
+  },
+  "balances": {
+    "yourEthereumAddress": "Il Tuo Indirizzo Ethereum",
+    "yourPrincipalAddress": "Il Tuo Indirizzo Principal",
+    "usdc": "USDC",
+    "ethGas": "ETH (Gas)",
+    "ckUSDC": "ckUSDC"
+  },
+  "swap": {
+    "selectAmount": "Seleziona importo...",
+    "placeholder": "0,00",
+    "bsvDestination": "BSV sarà inviato a:",
+    "ethereumAddress": "Indirizzo Ethereum",
+    "ethereumAddressHelper": "Precompilato con il tuo indirizzo EasySwap. Puoi modificarlo.",
+    "gasFeeLabel": "Commissione Gas (in ckUSDC):",
+    "gasFeeAmount": "~$0,40-0,80",
+    "treasuryFeeLabel": "Commissione Tesoreria:",
+    "treasuryFeeAmount": "$0,05",
+    "gasFeeExplanation": "La commissione gas copre i costi di transazione Ethereum (dinamica basata sul prezzo ETH). La commissione tesoreria copre i costi operativi (chiamate oracle XRC, ecc.). Il Canister utilizza il suo ckETH per pagare il gas effettivo su Ethereum.",
+    "buttons": {
+      "converting": "Conversione...",
+      "convertToIcp": "Converti in ckUSDC (ICP)",
+      "withdrawing": "Prelievo...",
+      "withdrawToEth": "Preleva in ethUSDC",
+      "creatingOrder": "Creazione Ordine...",
+      "swapToBsv": "Scambia in BSV"
+    },
+    "warnings": {
+      "connectFirst": "⚠️ Connetti prima il portafoglio per convertire ethUSDC",
+      "withdrawalTime": "⏳ Il prelievo richiede ~20-30 minuti per arrivare su Ethereum",
+      "bsvOrderInfo": "💡 Il tuo ordine verrà piazzato al prezzo attuale di BSV + {{buffer}}% di margine. Una volta che i trader soddisfano il tuo ordine, BSV arriverà al tuo indirizzo di portafoglio Metanet, in genere entro 12 ore o prima."
+    },
+    "availableBalance": "Disponibile: {{balance}} USDC",
+    "feeExplanation": "Commissione: {{totalFee}}% totale ({{activationFee}}% attivazione + {{fillerIncentive}}% incentivo filler) + ${{transferFee}} commissioni di trasferimento (2x).",
+    "feeTotal": "Totale con commissioni: {{amount}} USDC"
+  },
+  "send": {
+    "recipientAddress": "Indirizzo Destinatario",
+    "sendToMetanet": "Invia al Saldo Metanet",
+    "metanetInfo": "💡 Preleva nel tuo Saldo Metanet",
+    "icpPrincipal": "Principal ICP:",
+    "notConnected": "Non connesso",
+    "buttons": {
+      "sending": "Invio...",
+      "sendEthUSDC": "Invia"
+    },
+    "icrcTransferInfo": "Utilizza trasferimento ICRC1 diretto - possiedi questo ckUSDC e firmi la transazione",
+    "warnings": {
+      "connectFirst": "⚠️ Connetti prima il portafoglio per inviare ethUSDC"
+    },
+    "availableAmount": "Disponibile: {{amount}} USDC"
+  },
+  "receive": {
+    "title": "Richiedi dal Saldo Metanet",
+    "description": "Richiedi ckUSDC DAL tuo saldo piattaforma Metanet AL tuo portafoglio EasySwap",
+    "amountLabel": "Importo (ckUSDC)",
+    "buttons": {
+      "requesting": "Richiesta...",
+      "requestFromMetanet": "Richiedi da Metanet"
+    },
+    "sdkInfo": "Utilizza SDK sendCommand - la piattaforma Metanet firma e invia a te"
+  },
+  "info": {
+    "compact": "💡 EasySwap utilizza ckUSDC per finanziare gli ordini. Finanzia il tuo indirizzo Ethereum EasySwap e scambia in ckUSDC, attendi ±30 minuti e usa il ckUSDC per attivare i tuoi ordini. Oppure finanzia ckUSDC direttamente dal tuo saldo Metanet o da qualsiasi exchange Internet Computer Protocol. Sta a te. Non controlliamo le chiavi del tuo portafoglio EasySwap.",
+    "full": "💡 EasySwap utilizza ckUSDC per finanziare gli ordini. Finanzia il tuo EasySwap $USDC sulla rete Ethereum e scambia in ckUSDC sull'ICP, attendi ±30 minuti e usa il ckUSDC per piazzare/attivare ordini. Oppure finanzia ckUSDC direttamente dal tuo saldo Metanet o da qualsiasi exchange Internet Computer Protocol così non devi attendere. Sta a te. Non controlliamo le chiavi del tuo portafoglio EasySwap."
+  },
+  "treasury": {
+    "title": "Tesoreria App",
+    "gasBalance": "Gas (ckETH)",
+    "softwareRoyalty": "Royalty Software",
+    "cycles": "Cycles",
+    "statusOk": "✅ Il Canister paga le commissioni gas per i prelievi (tu paghi in ckUSDC)",
+    "statusLow": "⚠️ Saldo tesoreria basso - i prelievi potrebbero fallire",
+    "royaltyExplanation": "💰 Royalty Software: Commissioni raccolte dai costruttori come compenso per lo sviluppo di questo software di trading P2P completamente autonomo. Questo non è un trasmettitore di denaro - è una royalty per l'utilizzo del software che abilita swap atomici peer-to-peer diretti tra trader."
+  },
+  "errors": {
+    "walletNotInitialized": "Portafoglio non inizializzato",
+    "principalNotReady": "Portafoglio non inizializzato o principal non pronto",
+    "invalidAmount": "Si prega di inserire un importo valido",
+    "insufficientCkUSDC": "Saldo ckUSDC insufficiente",
+    "invalidEthereumAddress": "Indirizzo Ethereum non valido",
+    "connectWalletFirst": "Si prega di connettere prima il portafoglio",
+    "backendNotReady": "Backend non pronto",
+    "minimumAmount": "L'importo minimo è {{min}} USDC",
+    "insufficientBalance": "Saldo insufficiente. Disponibile: {{available}} USDC",
+    "maximumAmount": "L'importo massimo è {{max}} USDC (massimo {{chunks}} frammenti)",
+    "amountMultiple": "L'importo deve essere un multiplo di {{multiple}} USDC"
+  },
+  "messages": {
+    "copied": "Indirizzo copiato negli appunti!"
+  },
+  "ethBalanceGas": {
+    "title": "Saldo ETH per Gas",
+    "description": "Hai bisogno di ETH per pagare le commissioni gas durante la conversione di USDC in ckUSDC. Assicurati di avere abbastanza ETH per coprire la transazione."
+  }
+}

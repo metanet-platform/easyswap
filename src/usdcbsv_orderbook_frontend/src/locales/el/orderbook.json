@@ -1,0 +1,24 @@
+{
+  "title": "Βιβλίο Παραγγελιών",
+  "currentBsvPrice": "Τρέχουσα Τιμή BSV:",
+  "orderbookCapacity": "Χωρητικότητα Βιβλίου Παραγγελιών:",
+  "filled": "γεμάτο",
+  "refresh": "Ανανέωση",
+  "available": "Διαθέσιμα:",
+  "chunks": "Τμήματα:",
+  "orders": "Παραγγελίες:",
+  "loadingOrderbook": "Φόρτωση βιβλίου παραγγελιών...",
+  "noOrdersAvailable": "Δεν υπάρχουν διαθέσιμες παραγγελίες",
+  "amount": "Ποσό",
+  "maxPrice": "Μέγιστη Τιμή",
+  "bsvApprox": "BSV (~)",
+  "orderId": "ID Παραγγελίας",
+  "orderSingular": "παραγγελία",
+  "orderPlural": "παραγγελίες",
+  "availableSuffix": "διαθέσιμο",
+  "updated": "Ενημερώθηκε",
+  "orderbookRefreshed": "Το βιβλίο παραγγελιών ανανεώθηκε",
+  "errors": {
+    "fetchFailed": "Αποτυχία φόρτωσης βιβλίου παραγγελιών"
+  }
+}

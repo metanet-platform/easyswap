@@ -1,0 +1,24 @@
+{
+  "title": "دفتر الطلبات",
+  "currentBsvPrice": "سعر BSV الحالي:",
+  "orderbookCapacity": "سعة دفتر الطلبات:",
+  "filled": "مملوء",
+  "refresh": "تحديث",
+  "available": "متاح:",
+  "chunks": "الأجزاء:",
+  "orders": "الطلبات:",
+  "loadingOrderbook": "جاري تحميل دفتر الطلبات...",
+  "noOrdersAvailable": "لا توجد طلبات متاحة",
+  "amount": "المبلغ",
+  "maxPrice": "السعر الأقصى",
+  "bsvApprox": "BSV (~)",
+  "orderId": "معرف الطلب",
+  "orderSingular": "طلب",
+  "orderPlural": "طلبات",
+  "availableSuffix": "متاح",
+  "updated": "محدث",
+  "orderbookRefreshed": "تم تحديث دفتر الطلبات",
+  "errors": {
+    "fetchFailed": "فشل تحميل دفتر الأوامر"
+  }
+}

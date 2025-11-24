@@ -1,0 +1,83 @@
+{
+  "title": "充值",
+  "amount": "金额",
+  "dashboard": {
+    "title": "充值余额",
+    "subtitle": "选择您想充值的内容"
+  },
+  "options": {
+    "bsv": {
+      "title": "充值 BSV 余额",
+      "description": "提交请求以将 ckUSDC 兑换为 BSV。交易者将向您的钱包提供 BSV。",
+      "point1": "指定您想要的 BSV 美元金额",
+      "point2": "提供 ckUSDC 以激活请求",
+      "point3": "交易者用 BSV 满足您的请求"
+    },
+    "ckusdc": {
+      "title": "充值 ckUSDC 余额",
+      "description": "使用钱包交换选项卡将 USDC 从以太坊转换为 ICP 上的 ckUSDC。",
+      "point1": "从以太坊转移 USDC",
+      "point2": "使用钱包交换选项卡进行转换",
+      "point3": "使用 ckUSDC 提交请求或交易"
+    }
+  },
+  "bsvTopUp": {
+    "title": "充值 BSV 余额",
+    "subtitle": "提交请求以接收 BSV 以换取 ckUSDC"
+  },
+  "ckusdcTopUp": {
+    "title": "充值 ckUSDC 余额",
+    "subtitle": "按照以下步骤将 USDC 转换为 ckUSDC",
+    "instructionsTitle": "如何充值 ckUSDC",
+    "step1Title": "前往钱包页面",
+    "step1Desc": "使用屏幕底部的导航菜单导航到钱包页面。",
+    "goToWallet": "前往钱包",
+    "step2Title": "找到交换选项卡",
+    "step2Desc": "在钱包页面上，找到并点击交换选项卡以访问转换界面。",
+    "step3Title": "从以太坊转移 USDC",
+    "step3Desc": "您需要 ETH 用于 gas 费用和以太坊上的 USDC。将它们转移到交换选项卡上显示的 EasySwap 钱包地址。",
+    "step4Title": "转换为 ckUSDC",
+    "step4Desc": "按照交换界面说明将您的 USDC 转换为 ckUSDC。这使用 ICP 的去中心化交换流程。",
+    "step5Title": "使用您的 ckUSDC",
+    "step5Desc": "转换后，您可以使用 ckUSDC 提交 BSV 充值请求、成为交易者或提取到您的 Metanet 余额。",
+    "step6Title": "转换回以太坊（可选）",
+    "step6Desc": "您可以随时使用交换选项卡将 ckUSDC 转换回以太坊上的 USDC。只需交换 ckUSDC 到 ETH USDC 并提供您想要的任何以太坊地址 - 您的 EasySwap 地址、中心化交易所或任何其他钱包。",
+    "infoNote": "ckUSDC 是 ICP 上的链密钥 USDC 代币，可实现去中心化交换并与 EasySwap 完全自主的 BSV 充值订单簿无缝集成。",
+    "feesNote": "💡 每个操作的具体费用在交换过程中显示。"
+  },
+  "form": {
+    "swapTitle": "将USDC兑换为BSV",
+    "swapSubtitle": "将您的USDC转换为Bitcoin SV",
+    "disclaimerLink": "条款和条件",
+    "amountLabel": "USDC金额",
+    "activeOrders": "您有活跃的订单。请先完成或取消再创建新订单。",
+    "wantToGet": "想要获得",
+    "dollarValueSent": "发送的美元价值",
+    "bsvAddressPlaceholder": "您的BSV地址",
+    "fetchingPrice": "获取价格中...",
+    "createButton": "创建兑换订单",
+    "creating": "创建中...",
+    "afterCreating": "订单创建成功！请继续付款。",
+    "orderCreated": "订单创建成功",
+    "connectWalletFirst": "请先连接您的钱包",
+    "enterValidAmount": "请输入有效金额",
+    "enterValidBsvPrice": "请输入有效的BSV价格",
+    "enterValidBsvAddress": "请输入有效的BSV地址",
+    "createFailed": "创建订单失败",
+    "minimumAmount": "最小金额为{{min}}美元",
+    "maximumAmount": "最大金额为{{max}}美元",
+    "multipleAmount": "金额必须是{{multiple}}美元的倍数",
+    "orderLimitExceeded": "您最多可以有{{limit}}个活跃订单",
+    "currentBsvPrice": "当前BSV价格：${{price}}",
+    "toBsvAddress": "到BSV地址",
+    "atMaxBsvPrice": "以最高BSV价格"
+  },
+  "list": {
+    "noOrders": "未找到充值订单",
+    "subtitle": "活跃和部分完成的请求",
+    "viewAllOrders": "查看所有订单"
+  },
+  "status": {
+    "active": "活跃"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "title": "EasySwap Wallet",
+  "openWallet": "Wallet öffnen",
+  "connectFirst": "Bitte verbinden Sie zuerst Ihre Wallet",
+  "tabs": {
+    "swap": "Tauschen",
+    "send": "Senden",
+    "receive": "Empfangen"
+  },
+  "networks": {
+    "ethereum": "Ethereum-Netzwerk",
+    "icp": "Internet Computer Protocol"
+  },
+  "balances": {
+    "yourEthereumAddress": "Ihre Ethereum-Adresse",
+    "yourPrincipalAddress": "Ihre Principal-Adresse",
+    "usdc": "USDC",
+    "ethGas": "ETH (Gas)",
+    "ckUSDC": "ckUSDC"
+  },
+  "swap": {
+    "selectAmount": "Betrag auswählen...",
+    "placeholder": "0,00",
+    "bsvDestination": "BSV wird gesendet an:",
+    "ethereumAddress": "Ethereum-Adresse",
+    "ethereumAddressHelper": "Vorgefüllt mit Ihrer EasySwap-Adresse. Sie können sie ändern.",
+    "gasFeeLabel": "Gasgebühr (in ckUSDC):",
+    "gasFeeAmount": "~$0,40-0,80",
+    "treasuryFeeLabel": "Treasury-Gebühr:",
+    "treasuryFeeAmount": "$0,05",
+    "gasFeeExplanation": "Die Gasgebühr deckt Ethereum-Transaktionskosten ab (dynamisch basierend auf ETH-Preis). Die Treasury-Gebühr deckt Betriebskosten ab (XRC-Oracle-Aufrufe usw.). Der Canister verwendet sein ckETH, um das tatsächliche Gas auf Ethereum zu bezahlen.",
+    "buttons": {
+      "converting": "Konvertiere...",
+      "convertToIcp": "Zu ckUSDC (ICP) konvertieren",
+      "withdrawing": "Abheben...",
+      "withdrawToEth": "Zu ethUSDC abheben",
+      "creatingOrder": "Erstelle Bestellung...",
+      "swapToBsv": "Zu BSV tauschen"
+    },
+    "warnings": {
+      "connectFirst": "⚠️ Verbinden Sie zuerst die Wallet, um ethUSDC zu konvertieren",
+      "withdrawalTime": "⏳ Die Abhebung dauert ~20-30 Minuten, um auf Ethereum anzukommen",
+      "bsvOrderInfo": "💡 Ihre Bestellung wird zum aktuellen BSV-Preis + {{buffer}}% Puffer platziert. Sobald Händler Ihre Bestellung erfüllen, wird BSV an Ihre Metanet-Wallet-Adresse geliefert, normalerweise innerhalb von 12 Stunden oder früher."
+    },
+    "availableBalance": "Verfügbar: {{balance}} USDC",
+    "feeExplanation": "Gebühr: {{totalFee}}% insgesamt ({{activationFee}}% Aktivierung + {{fillerIncentive}}% Füller-Anreiz) + ${{transferFee}} Überweisungsgebühren (2x).",
+    "feeTotal": "Gesamt mit Gebühren: {{amount}} USDC"
+  },
+  "send": {
+    "recipientAddress": "Empfängeradresse",
+    "sendToMetanet": "Zum Metanet-Guthaben senden",
+    "metanetInfo": "💡 Zu Ihrem Metanet-Guthaben abheben",
+    "icpPrincipal": "ICP-Principal:",
+    "notConnected": "Nicht verbunden",
+    "buttons": {
+      "sending": "Sende...",
+      "sendEthUSDC": "Senden"
+    },
+    "icrcTransferInfo": "Verwendet direkte ICRC1-Übertragung - Sie besitzen dieses ckUSDC und signieren die Transaktion",
+    "warnings": {
+      "connectFirst": "⚠️ Verbinden Sie zuerst die Wallet, um ethUSDC zu senden"
+    },
+    "availableAmount": "Verfügbar: {{amount}} USDC"
+  },
+  "receive": {
+    "title": "Vom Metanet-Guthaben anfordern",
+    "description": "ckUSDC VON Ihrem Metanet-Plattform-Guthaben ZU Ihrer EasySwap-Wallet anfordern",
+    "amountLabel": "Betrag (ckUSDC)",
+    "buttons": {
+      "requesting": "Anfrage läuft...",
+      "requestFromMetanet": "Von Metanet anfordern"
+    },
+    "sdkInfo": "Verwendet SDK sendCommand - Metanet-Plattform signiert und sendet an Sie"
+  },
+  "info": {
+    "compact": "💡 EasySwap verwendet ckUSDC zur Finanzierung von Bestellungen. Finanzieren Sie Ihre EasySwap-Ethereum-Adresse und tauschen Sie zu ckUSDC, warten Sie ±30 Minuten und verwenden Sie das ckUSDC, um Ihre Bestellungen zu aktivieren. Oder finanzieren Sie ckUSDC direkt von Ihrem Metanet-Guthaben oder einer beliebigen Internet Computer Protocol-Börse. Es liegt an Ihnen. Wir kontrollieren nicht die Schlüssel Ihrer EasySwap-Wallet.",
+    "full": "💡 EasySwap verwendet ckUSDC zur Finanzierung von Bestellungen. Finanzieren Sie Ihr EasySwap $USDC im Ethereum-Netzwerk und tauschen Sie zu ckUSDC im ICP, warten Sie ±30 Minuten und verwenden Sie das ckUSDC zum Platzieren/Aktivieren von Bestellungen. Oder finanzieren Sie ckUSDC direkt von Ihrem Metanet-Guthaben oder einer beliebigen Internet Computer Protocol-Börse, damit Sie nicht warten müssen. Es liegt an Ihnen. Wir kontrollieren nicht die Schlüssel Ihrer EasySwap-Wallet."
+  },
+  "treasury": {
+    "title": "App-Treasury",
+    "gasBalance": "Gas (ckETH)",
+    "softwareRoyalty": "Software-Lizenzgebühr",
+    "cycles": "Cycles",
+    "statusOk": "✅ Canister zahlt Gasgebühren für Abhebungen (Sie zahlen in ckUSDC)",
+    "statusLow": "⚠️ Niedriges Treasury-Guthaben - Abhebungen können fehlschlagen",
+    "royaltyExplanation": "💰 Software-Lizenzgebühr: Von Entwicklern gesammelte Gebühren als Entschädigung für die Entwicklung dieser vollständig autonomen P2P-Handelssoftware. Dies ist kein Geldübermittler - es ist eine Lizenzgebühr für die Softwarenutzung, die direkte Peer-to-Peer-Atomic-Swaps zwischen Händlern ermöglicht."
+  },
+  "errors": {
+    "walletNotInitialized": "Wallet nicht initialisiert",
+    "principalNotReady": "Wallet nicht initialisiert oder Principal nicht bereit",
+    "invalidAmount": "Bitte geben Sie einen gültigen Betrag ein",
+    "insufficientCkUSDC": "Unzureichendes ckUSDC-Guthaben",
+    "invalidEthereumAddress": "Ungültige Ethereum-Adresse",
+    "connectWalletFirst": "Bitte verbinden Sie zuerst Ihre Wallet",
+    "backendNotReady": "Backend nicht bereit",
+    "minimumAmount": "Mindestbetrag ist {{min}} USDC",
+    "insufficientBalance": "Unzureichendes Guthaben. Verfügbar: {{available}} USDC",
+    "maximumAmount": "Maximalbetrag ist {{max}} USDC (maximal {{chunks}} Stücke)",
+    "amountMultiple": "Betrag muss ein Vielfaches von {{multiple}} USDC sein"
+  },
+  "messages": {
+    "copied": "Adresse in Zwischenablage kopiert!"
+  },
+  "ethBalanceGas": {
+    "title": "ETH-Guthaben für Gas",
+    "description": "Sie benötigen ETH, um Gasgebühren beim Konvertieren von USDC zu ckUSDC zu bezahlen. Stellen Sie sicher, dass Sie genügend ETH haben, um die Transaktion abzudecken."
+  }
+}

@@ -1,0 +1,332 @@
+type AdminEvent = record {
+  id : nat64;
+  timestamp : nat64;
+  event_type : AdminEventType;
+};
+type AdminEventType = variant {
+  PenaltyApplied : record {
+    trade_id : nat64;
+    order_id : opt nat64;
+    filler : principal;
+    order_maker : opt principal;
+    penalty_amount : float64;
+    bsv_tx_hex : opt text;
+    reason : text;
+  };
+  HeartbeatExecution : record {
+    cycles_consumed : nat;
+    operation : text;
+    timestamp : nat64;
+  };
+  TradeExpiredToTreasury : record {
+    trade_id : nat64;
+    block_index : nat64;
+    filler : principal;
+    amount_sent : float64;
+    order_id : nat64;
+  };
+  BlockInsertionError : record {
+    block_height : nat64;
+    error_message : text;
+  };
+  NewOrdersEnabled;
+  NewOrdersDisabled;
+};
+type BlockHeader = record {
+  height : nat64;
+  bits : nat32;
+  hash : text;
+  version : int32;
+  merkle_root : text;
+  previous_hash : text;
+  raw_header : text;
+  nonce : nat32;
+  timestamp : nat64;
+};
+type BlocksWithMetadata = record {
+  blocks : vec BlockHeader;
+  oldest_height : nat64;
+  newest_height : nat64;
+  total_count : nat64;
+};
+type ChunkDetails = record {
+  id : nat64;
+  status : ChunkStatus;
+  locked_by : opt nat64;
+  amount_usd : float64;
+  filled_at : opt nat64;
+  order_id : nat64;
+};
+type ChunkStatus = variant {
+  Refunding;
+  Available;
+  Refunded;
+  Idle;
+  Locked;
+  Filled;
+};
+type CreateTradesRequest = record {
+  allow_partial : bool;
+  requested_usd : float64;
+  min_bsv_price : float64;
+};
+type FillerAccount = record {
+  id : principal;
+  penalties_paid : float64;
+  created_at : nat64;
+  pending_trades_total : float64;
+  total_trades : nat64;
+  successful_trades : nat64;
+};
+type HttpHeader = record { value : text; name : text };
+type HttpResponse = record {
+  status : nat;
+  body : blob;
+  headers : vec HttpHeader;
+};
+type LockedChunk = record {
+  sats_amount : nat64;
+  chunk_id : nat64;
+  amount_usd : float64;
+  order_id : nat64;
+  bsv_address : text;
+};
+type Order = record {
+  id : nat64;
+  total_refunded_usd : opt float64;
+  maker : principal;
+  status : OrderStatus;
+  total_filled_usd : float64;
+  refund_attempts : vec RefundAttempt;
+  activation_fee_confirmed_at : opt nat64;
+  activation_fee_block_index : opt nat64;
+  total_locked_usd : float64;
+  activation_fee_usd : opt float64;
+  total_deposited_usd : opt float64;
+  allow_partial_fill : bool;
+  created_at : nat64;
+  deposit_confirmed_at : opt nat64;
+  deposit_principal : text;
+  funded_at : opt nat64;
+  amount_usd : float64;
+  deposit_subaccount : text;
+  max_bsv_price : float64;
+  total_idle_usd : float64;
+  chunks : vec nat64;
+  bsv_address : text;
+  filler_incentive_reserved : opt float64;
+};
+type OrderStatus = variant {
+  Refunded;
+  Idle;
+  Active;
+  PartiallyFilled;
+  Filled;
+  Cancelled;
+};
+type OrderbookChunk = record {
+  amount_usd : float64;
+  order_id : nat64;
+  max_price_per_bsv_in_cents : nat64;
+};
+type OrderbookStats = record {
+  total_active_chunks : nat64;
+  total_locked_usd : float64;
+  total_trades : nat64;
+  total_orders : nat64;
+  current_bsv_price : float64;
+  total_available_usd : float64;
+};
+type PaginatedChunks = record {
+  total : nat64;
+  offset : nat64;
+  limit : nat64;
+  chunks : vec OrderbookChunk;
+};
+type PaginatedOrders = record {
+  total : nat64;
+  orders : vec Order;
+  offset : nat64;
+  limit : nat64;
+};
+type PaginatedTrades = record {
+  total : nat64;
+  trades : vec Trade;
+  offset : nat64;
+  limit : nat64;
+};
+type RefundAttempt = record {
+  status : RefundStatus;
+  total_amount : float64;
+  refund_id : nat64;
+  requested_at : nat64;
+  chunk_ids : vec nat64;
+  recipient_address : text;
+  tx_hash : opt text;
+  tx_sent_at : opt nat64;
+  confirmed_at : opt nat64;
+};
+type RefundStatus = variant { Failed; Sent; Confirmed; Pending };
+
+type Result_1 = variant { Ok : nat; Err : text };
+type Result_2 = variant { Ok; Err : text };
+type Result_3 = variant { Ok : nat64; Err : text };
+type Result_4 = variant { Ok : vec nat64; Err : text };
+type Result_5 = variant { Ok : float64; Err : text };
+type Result_6 = variant { Ok : RetrieveErc20Request; Err : text };
+type Result_7 = variant { Ok : text; Err : text };
+type RetrieveErc20Request = record {
+  ckerc20_block_index : nat;
+  cketh_block_index : nat;
+};
+type Trade = record {
+  id : nat64;
+  status : TradeStatus;
+  release_available_at : opt nat64;
+  withdrawal_initiated_at : opt nat64;
+  lock_expires_at : nat64;
+  created_at : nat64;
+  withdrawal_confirmed_at : opt nat64;
+  amount_usd : float64;
+  filler : principal;
+  tx_submitted_at : opt nat64;
+  agreed_bsv_price : float64;
+  order_id : nat64;
+  min_bsv_price : float64;
+  withdrawal_tx_hash : opt text;
+  bsv_tx_hex : opt text;
+  locked_chunks : vec LockedChunk;
+  claim_expires_at : opt nat64;
+};
+type TradeStatus = variant {
+  TxSubmitted;
+  ReadyForRelease;
+  ChunksLocked;
+  PenaltyApplied;
+  WithdrawalConfirmed;
+  Cancelled;
+};
+type TransformArgs = record { context : blob; response : HttpResponse };
+type ChunkAuditInfo = record {
+  chunk_id : nat64;
+  amount_usd : float64;
+  status : ChunkStatus;
+  locked_by_trade : opt nat64;
+  filled_at : opt nat64;
+};
+type OrderAuditRecord = record {
+  order_id : nat64;
+  maker : principal;
+  amount_usd : float64;
+  total_deposited_usd : opt float64;
+  activation_fee_usd : opt float64;
+  deposit_principal : text;
+  deposit_subaccount : text;
+  max_bsv_price : float64;
+  allow_partial_fill : bool;
+  bsv_address : text;
+  status : OrderStatus;
+  chunks : vec ChunkAuditInfo;
+  created_at : nat64;
+  deposit_confirmed_at : opt nat64;
+  funded_at : opt nat64;
+  activation_fee_confirmed_at : opt nat64;
+  total_filled_usd : float64;
+  total_locked_usd : float64;
+  total_idle_usd : float64;
+  total_refunded_usd : opt float64;
+  refund_count : nat64;
+};
+type TradeAuditRecord = record {
+  trade_id : nat64;
+  order_id : nat64;
+  maker : principal;
+  filler : principal;
+  amount_usd : float64;
+  chunks_count : nat64;
+  agreed_bsv_price : float64;
+  min_bsv_price : float64;
+  status : TradeStatus;
+  bsv_tx_hex : opt text;
+  maker_bsv_address : text;
+  created_at : nat64;
+  tx_submitted_at : opt nat64;
+  lock_expires_at : nat64;
+  release_available_at : opt nat64;
+  claim_expires_at : opt nat64;
+  withdrawal_initiated_at : opt nat64;
+  withdrawal_tx_hash : opt text;
+  withdrawal_confirmed_at : opt nat64;
+};
+type AuditQueryParams = record {
+  start_time : opt nat64;
+  end_time : opt nat64;
+  page : nat64;
+  page_size : nat64;
+};
+type OrderAuditResponse = record {
+  records : vec OrderAuditRecord;
+  total_count : nat64;
+  page : nat64;
+  page_size : nat64;
+};
+type TradeAuditResponse = record {
+  records : vec TradeAuditRecord;
+  total_count : nat64;
+  page : nat64;
+  page_size : nat64;
+};
+type Result_8 = variant { Ok : OrderAuditResponse; Err : text };
+type Result_9 = variant { Ok : TradeAuditResponse; Err : text };
+service : () -> {
+  admin_get_orders_audit : (AuditQueryParams) -> (Result_8) query;
+  admin_get_trades_audit : (AuditQueryParams) -> (Result_9) query;
+  admin_toggle_new_orders : (bool) -> (Result_7);
+  admin_withdraw_ckusdc_treasury : () -> (Result_1);
+  are_new_orders_enabled : () -> (bool) query;
+  cancel_order : (nat64) -> (Result_2);
+  claim_usdc : (nat64, text, text) -> (Result_2);
+  create_order : (float64, float64, text) -> (Result_3);
+  create_trades : (CreateTradesRequest) -> (Result_4);
+  deposit_security : (nat64) -> (Result_2);
+  get_active_chunks : () -> (vec OrderbookChunk) query;
+  get_active_chunks_paginated : (nat64, nat64) -> (PaginatedChunks) query;
+  get_admin_events : (opt nat64) -> (vec AdminEvent) query;
+  get_admin_events_count : () -> (nat64) query;
+  get_admin_events_paginated : (nat64, nat64) -> (vec AdminEvent) query;
+  get_available_orderbook : () -> (float64) query;
+  get_bsv_price : () -> (Result_5);
+  get_cycles_balance : () -> (nat64) query;
+  get_eth_usd_price : () -> (Result_5);
+  get_filler_incentive_percent : () -> (float64) query;
+  get_filler_subaccount_address : () -> (text) query;
+  get_my_active_orders : () -> (vec Order) query;
+  get_my_active_orders_paginated : (nat64, nat64) -> (PaginatedOrders) query;
+  get_my_filler_account : () -> (opt FillerAccount) query;
+  get_my_orders : () -> (vec Order) query;
+  get_my_orders_by_status_paginated : (OrderStatus, nat64, nat64) -> (
+      PaginatedOrders,
+    ) query;
+  get_my_orders_paginated : (nat64, nat64, opt vec OrderStatus) -> (
+      PaginatedOrders,
+    ) query;
+  get_my_trades : () -> (vec Trade) query;
+  get_my_trades_paginated : (nat64, nat64, opt vec TradeStatus) -> (
+      PaginatedTrades,
+    ) query;
+  get_order : (nat64) -> (opt Order) query;
+  get_order_chunks : (nat64) -> (vec ChunkDetails) query;
+  get_orderbook_stats : () -> (OrderbookStats) query;
+  get_recent_blocks : (nat64) -> (BlocksWithMetadata) query;
+  get_trade : (nat64) -> (opt Trade) query;
+  resubmit_bsv_transaction : (nat64, text) -> (Result_2);
+  submit_bsv_transaction : (nat64, text) -> (Result_2);
+  // Transform function for HTTP responses (required by ICP)
+  // CRITICAL: Must produce IDENTICAL output on all replicas for consensus
+  // Extracts only immutable blockchain fields in deterministic order
+  transform_http_response : (TransformArgs) -> (HttpResponse) query;
+  transform_price_response : (TransformArgs) -> (HttpResponse) query;
+  update_max_bsv_price : (nat64, float64) -> (Result_2);
+  withdraw_ckusdc_to_eth : (nat, nat, nat, nat, text) -> (Result_6);
+  withdraw_security : (nat64, text) -> (Result_2);
+}

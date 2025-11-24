@@ -1,0 +1,39 @@
+[
+    {
+        "match": "**/*",
+        "headers": {
+            // Content Security Policy (CSP) for sandboxed iframe usage and allowing scripts
+            "Content-Security-Policy": "default-src 'self'; \
+                                       script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.icp0.io https://*.icp-api.io; \
+                                       connect-src 'self' https://icp0.io https://*.icp0.io https://icp-api.io http://localhost:* https://*.metanet.ninja https://*.metanet.page http://127.0.0.1:* https://*.publicnode.com https://*.ankr.com/eth https://*.llamarpc.com https://*.ic0.app https://ic0.app; \
+                                       img-src 'self' data:; \
+                                       style-src 'self' 'unsafe-inline'; \
+                                       style-src-elem 'self' 'unsafe-inline'; \
+                                       font-src 'self'; \
+                                       object-src 'none'; \
+                                       base-uri 'self'; \
+                                       frame-ancestors 'self' https://*.metanet.ninja https://*.metanet.page http://localhost:* http://127.0.0.1:*; \
+                                       form-action 'self'; \
+                                       upgrade-insecure-requests; \
+                                       block-all-mixed-content;",
+
+            // Permissions Policy: Only enabling basic features for the frontend app
+            "Permissions-Policy": "accelerometer=(), autoplay=(), battery=(), camera=(), geolocation=(), microphone=(), midi=(), payment=(), picture-in-picture=(), fullscreen=(), usb=(), clipboard-read=(), clipboard-write=(), sync-xhr=(), gamepad=(), screen-wake-lock=()",
+
+            // Mitigates clickjacking by allowing only the same origin and localhost
+            "X-Frame-Options": "SAMEORIGIN",
+
+            // Referrer Policy: Restricting referrer headers to the same origin for added privacy
+            "Referrer-Policy": "same-origin",
+
+            // Enforcing HTTPS for secure connections
+            "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+
+            // Prevents MIME sniffing of content, which could be exploited for XSS
+            "X-Content-Type-Options": "nosniff",
+
+            // Enabling XSS protection, but in a strict mode
+            "X-XSS-Protection": "1; mode=block"
+        }
+    }
+]

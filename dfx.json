@@ -1,0 +1,27 @@
+{
+  "canisters": {
+    "usdcbsv_orderbook_backend": {
+      "candid": "src/usdcbsv_orderbook_backend/usdcbsv_orderbook_backend.did",
+      "package": "usdcbsv_orderbook_backend",
+      "type": "rust"
+    },
+    "usdcbsv_orderbook_frontend": {
+      "dependencies": [
+        "usdcbsv_orderbook_backend"
+      ],
+      "source": [
+        "src/usdcbsv_orderbook_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "usdcbsv_orderbook_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}

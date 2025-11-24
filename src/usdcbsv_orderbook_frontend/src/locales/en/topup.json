@@ -1,0 +1,85 @@
+{
+  "dashboard": {
+    "title": "Top Up Your Balance",
+    "subtitle": "Choose what you want to top up"
+  },
+  "options": {
+    "bsv": {
+      "title": "Top Up BSV Balance",
+      "description": "Submit a request to exchange ckUSDC for BSV. Traders will provide BSV to your wallet.",
+      "point1": "Specify USD amount you want in BSV",
+      "point2": "Provide ckUSDC to activate request",
+      "point3": "Traders fill your request with BSV"
+    },
+    "ckusdc": {
+      "title": "Top Up ckUSDC Balance",
+      "description": "Convert USDC from Ethereum to ckUSDC on ICP using the Wallet Swap tab.",
+      "point1": "Transfer USDC from Ethereum",
+      "point2": "Use Wallet Swap tab to convert",
+      "point3": "Use ckUSDC to submit requests or trade"
+    }
+  },
+  "bsvTopUp": {
+    "title": "Top Up BSV Balance",
+    "subtitle": "Submit a request to receive BSV in exchange for ckUSDC"
+  },
+  "ckusdcTopUp": {
+    "title": "Top Up ckUSDC Balance",
+    "subtitle": "Follow these steps to convert USDC to ckUSDC",
+    "instructionsTitle": "How to Top Up ckUSDC",
+    "step1Title": "Go to Wallet Page",
+    "step1Desc": "Navigate to the Wallet page using the navigation menu at the bottom of the screen.",
+    "goToWallet": "Go to Wallet",
+    "step2Title": "Find the Swap Tab",
+    "step2Desc": "On the Wallet page, locate and click on the \"Swap\" tab to access the conversion interface.",
+    "step3Title": "Transfer USDC from Ethereum",
+    "step3Desc": "You'll need ETH for gas fees and USDC on Ethereum. Transfer them to your EasySwap wallet address shown on the Swap tab.",
+    "step4Title": "Convert to ckUSDC",
+    "step4Desc": "Follow the swap interface instructions to convert your USDC to ckUSDC. This uses ICP's decentralized exchange process.",
+    "step5Title": "Use Your ckUSDC",
+    "step5Desc": "Once converted, you can use ckUSDC to submit BSV top-up requests, become a trader, or withdraw to your Metanet balance.",
+    "step6Title": "Converting Back to Ethereum (Optional)",
+    "step6Desc": "You can convert ckUSDC back to USDC on Ethereum anytime using the Swap tab. Simply swap ckUSDC → ETH USDC and provide ANY Ethereum address you want - your EasySwap address, a centralized exchange, or any other wallet.",
+    "infoNote": "ckUSDC is a chain-key USDC token on ICP that enables decentralized swaps and seamless integration with EasySwap's fully autonomous BSV Top-up Orderbook.",
+    "feesNote": "💡 Specific fees for each operation are displayed during the swap process."
+  },
+  "form": {
+    "swapTitle": "Top Up BSV Balance",
+    "swapSubtitle": "Specify how much BSV you want to receive",
+    "disclaimerLink": "Read disclaimers before submitting a request",
+    "amountLabel": "Amount (USD)",
+    "activeOrders": "Active Requests",
+    "wantToGet": "I want to receive",
+    "dollarValueSent": "dollar value sent to my BitcoinSV balance at",
+    "bsvAddressPlaceholder": "Your BSV wallet address",
+    "fetchingPrice": "Fetching current price...",
+    "createButton": "Submit Request",
+    "creating": "Submitting...",
+    "afterCreating": "After submitting, you'll be prompted to fund your request with ckUSDC",
+    "orderCreated": "✨ Request submitted! Fund it with ckUSDC to activate and start receiving BSV.",
+    "connectWalletFirst": "Please connect your wallet first",
+    "enterValidAmount": "Please enter a valid amount",
+    "enterValidBsvPrice": "Please enter a valid BSV price",
+    "enterValidBsvAddress": "Please enter a valid BSV address",
+    "createFailed": "Failed to submit request",
+    "transferFailed": "Transfer failed",
+    "transferringFunds": "Transferring ckUSDC to canister...",
+    "creatingOrder": "Creating order...",
+    "insufficientBalance": "Insufficient balance. Need {{required}} ckUSDC but you have {{balance}} ckUSDC (shortfall: {{shortfall}})",
+    "minimumAmount": "Minimum amount is {{min}} USD",
+    "maximumAmount": "Maximum amount is {{max}} USD",
+    "multipleAmount": "Amount must be a multiple of {{multiple}} USD",
+    "orderLimitExceeded": "You can have maximum {{limit}} active orders",
+    "currentBsvPrice": "Current BSV Price: ${{price}}",
+    "toBsvAddress": "To BSV Address",
+    "atMaxBsvPrice": "At Maximum BSV Price"
+  },
+  "list": {
+    "noOrders": "No requests yet. Submit your first request above!",
+    "subtitle": "Active and partially filled requests",
+    "viewAllOrders": "View All Orders"
+  },
+  "status": {
+    "active": "Active"
+  }
+}

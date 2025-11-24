@@ -1,0 +1,24 @@
+{
+  "title": "ऑर्डरबुक",
+  "currentBsvPrice": "वर्तमान BSV कीमत:",
+  "orderbookCapacity": "ऑर्डरबुक क्षमता:",
+  "filled": "भरा हुआ",
+  "refresh": "रीफ्रेश",
+  "available": "उपलब्ध:",
+  "chunks": "खंड:",
+  "orders": "ऑर्डर:",
+  "loadingOrderbook": "ऑर्डरबुक लोड हो रहा है...",
+  "noOrdersAvailable": "कोई ऑर्डर उपलब्ध नहीं",
+  "amount": "राशि",
+  "maxPrice": "अधिकतम कीमत",
+  "bsvApprox": "BSV (~)",
+  "orderId": "ऑर्डर ID",
+  "orderSingular": "ऑर्डर",
+  "orderPlural": "ऑर्डर",
+  "availableSuffix": "उपलब्ध",
+  "updated": "अपडेट किया गया",
+  "orderbookRefreshed": "ऑर्डरबुक रीफ्रेश किया गया",
+  "errors": {
+    "fetchFailed": "ऑर्डरबुक लोड करने में विफल"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "title": "EasySwap 钱包",
+  "openWallet": "打开钱包",
+  "connectFirst": "请先连接您的钱包",
+  "tabs": {
+    "swap": "兑换",
+    "send": "发送",
+    "receive": "接收"
+  },
+  "networks": {
+    "ethereum": "以太坊网络",
+    "icp": "互联网计算机协议"
+  },
+  "balances": {
+    "yourEthereumAddress": "您的以太坊地址",
+    "yourPrincipalAddress": "您的 Principal 地址",
+    "usdc": "USDC",
+    "ethGas": "ETH（Gas）",
+    "ckUSDC": "ckUSDC"
+  },
+  "swap": {
+    "selectAmount": "选择金额...",
+    "placeholder": "0.00",
+    "bsvDestination": "BSV 将发送到：",
+    "ethereumAddress": "以太坊地址",
+    "ethereumAddressHelper": "已预填您的 EasySwap 地址。您可以更改。",
+    "gasFeeLabel": "Gas 费用（以 ckUSDC 计）：",
+    "gasFeeAmount": "~$0.40-0.80",
+    "treasuryFeeLabel": "国库费用：",
+    "treasuryFeeAmount": "$0.05",
+    "gasFeeExplanation": "Gas 费用涵盖以太坊交易成本（基于 ETH 价格动态变化）。国库费用涵盖运营成本（XRC oracle 调用等）。Canister 使用其 ckETH 支付以太坊上的实际 gas。",
+    "buttons": {
+      "converting": "转换中...",
+      "convertToIcp": "转换为 ckUSDC（ICP）",
+      "withdrawing": "提取中...",
+      "withdrawToEth": "提取到 ethUSDC",
+      "creatingOrder": "创建订单中...",
+      "swapToBsv": "兑换为 BSV"
+    },
+    "warnings": {
+      "connectFirst": "⚠️ 请先连接钱包以转换 ethUSDC",
+      "withdrawalTime": "⏳ 提取需要约 20-30 分钟到达以太坊",
+      "bsvOrderInfo": "💡 您的订单将以当前 BSV 价格 + {{buffer}}% 保证金下单。一旦交易者完成您的订单，BSV 将到达您的 Metanet 钱包地址，通常在 12 小时内或更早。"
+    },
+    "availableBalance": "可用：{{balance}} USDC",
+    "feeExplanation": "费用：总计 {{totalFee}}%（激活 {{activationFee}}% + 填充者激励 {{fillerIncentive}}%）+ ${{transferFee}} 转账费用 (2x)。",
+    "feeTotal": "含费用总计：{{amount}} USDC"
+  },
+  "send": {
+    "recipientAddress": "收款地址",
+    "sendToMetanet": "发送到 Metanet 余额",
+    "metanetInfo": "💡 提取到您的 Metanet 余额",
+    "icpPrincipal": "ICP Principal：",
+    "notConnected": "未连接",
+    "buttons": {
+      "sending": "发送中...",
+      "sendEthUSDC": "发送"
+    },
+    "icrcTransferInfo": "使用直接 ICRC1 转账 - 您拥有此 ckUSDC 并签署交易",
+    "warnings": {
+      "connectFirst": "⚠️ 请先连接钱包以发送 ethUSDC"
+    },
+    "availableAmount": "可用：{{amount}} USDC"
+  },
+  "receive": {
+    "title": "从 Metanet 余额请求",
+    "description": "从您的 Metanet 平台余额请求 ckUSDC 到您的 EasySwap 钱包",
+    "amountLabel": "金额（ckUSDC）",
+    "buttons": {
+      "requesting": "请求中...",
+      "requestFromMetanet": "从 Metanet 请求"
+    },
+    "sdkInfo": "使用 SDK sendCommand - Metanet 平台签署并发送给您"
+  },
+  "info": {
+    "compact": "💡 EasySwap 使用 ckUSDC 为订单提供资金。为您的 EasySwap 以太坊地址充值并兑换为 ckUSDC，等待约 30 分钟，然后使用 ckUSDC 激活您的订单。或直接从您的 Metanet 余额或任何 Internet Computer Protocol 交易所充值 ckUSDC。由您决定。我们不控制您的 EasySwap 钱包密钥。",
+    "full": "💡 EasySwap 使用 ckUSDC 为订单提供资金。在以太坊网络上为您的 EasySwap $USDC 充值并在 ICP 上兑换为 ckUSDC，等待约 30 分钟，然后使用 ckUSDC 下单/激活订单。或直接从您的 Metanet 余额或任何 Internet Computer Protocol 交易所充值 ckUSDC，这样就不必等待。由您决定。我们不控制您的 EasySwap 钱包密钥。"
+  },
+  "treasury": {
+    "title": "应用国库",
+    "gasBalance": "Gas（ckETH）",
+    "softwareRoyalty": "软件版税",
+    "cycles": "Cycles",
+    "statusOk": "✅ Canister 为提取支付 gas 费用（您用 ckUSDC 支付）",
+    "statusLow": "⚠️ 国库余额不足 - 提取可能失败",
+    "royaltyExplanation": "💰 软件版税：由开发者收取的费用，作为开发这个完全自主的 P2P 交易软件的补偿。这不是货币传输者 - 这是使用软件的版税，使交易者之间能够直接进行点对点原子交换。"
+  },
+  "errors": {
+    "walletNotInitialized": "钱包未初始化",
+    "principalNotReady": "钱包未初始化或 principal 未就绪",
+    "invalidAmount": "请输入有效金额",
+    "insufficientCkUSDC": "ckUSDC 余额不足",
+    "invalidEthereumAddress": "无效的以太坊地址",
+    "connectWalletFirst": "请先连接您的钱包",
+    "backendNotReady": "后端未就绪",
+    "minimumAmount": "最小金额为{{min}} USDC",
+    "insufficientBalance": "余额不足。可用：{{available}} USDC",
+    "maximumAmount": "最大金额为{{max}} USDC（最多{{chunks}}个片段）",
+    "amountMultiple": "金额必须是{{multiple}} USDC的倍数"
+  },
+  "messages": {
+    "copied": "地址已复制到剪贴板！"
+  },
+  "ethBalanceGas": {
+    "title": "ETH余额用于Gas",
+    "description": "将USDC转换为ckUSDC时，您需要ETH来支付gas费用。确保您有足够的ETH来支付交易。"
+  }
+}

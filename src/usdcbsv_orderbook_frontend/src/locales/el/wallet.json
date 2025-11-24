@@ -1,0 +1,108 @@
+{
+  "title": "Πορτοφόλι EasySwap",
+  "openWallet": "Άνοιγμα Πορτοφολιού",
+  "connectFirst": "Παρακαλώ συνδέστε πρώτα το πορτοφόλι σας",
+  "tabs": {
+    "swap": "Ανταλλαγή",
+    "send": "Αποστολή",
+    "receive": "Λήψη"
+  },
+  "networks": {
+    "ethereum": "Δίκτυο Ethereum",
+    "icp": "Internet Computer Protocol"
+  },
+  "balances": {
+    "yourEthereumAddress": "Η Διεύθυνση Ethereum σας",
+    "yourPrincipalAddress": "Η Διεύθυνση Principal σας",
+    "usdc": "USDC",
+    "ethGas": "ETH (Gas)",
+    "ckUSDC": "ckUSDC"
+  },
+  "swap": {
+    "selectAmount": "Επιλέξτε ποσό...",
+    "placeholder": "0.00",
+    "bsvDestination": "Το BSV θα σταλεί στο:",
+    "ethereumAddress": "Διεύθυνση Ethereum",
+    "ethereumAddressHelper": "Προσυμπληρωμένο με τη διεύθυνση EasySwap σας. Μπορείτε να την αλλάξετε.",
+    "gasFeeLabel": "Προμήθεια Gas (σε ckUSDC):",
+    "gasFeeAmount": "~$0.40-0.80",
+    "treasuryFeeLabel": "Προμήθεια Treasury:",
+    "treasuryFeeAmount": "$0.05",
+    "gasFeeExplanation": "Η προμήθεια gas καλύπτει το κόστος συναλλαγών Ethereum (δυναμική βάσει τιμής ETH). Η προμήθεια treasury καλύπτει λειτουργικά έξοδα (κλήσεις XRC oracle κλπ.). Το Canister χρησιμοποιεί το ckETH του για πληρωμή πραγματικού gas στο Ethereum.",
+    "buttons": {
+      "converting": "Μετατροπή...",
+      "convertToIcp": "Μετατροπή σε ckUSDC (ICP)",
+      "withdrawing": "Ανάληψη...",
+      "withdrawToEth": "Ανάληψη σε ethUSDC",
+      "creatingOrder": "Δημιουργία Εντολής...",
+      "swapToBsv": "Ανταλλαγή σε BSV"
+    },
+    "warnings": {
+      "connectFirst": "⚠️ Συνδέστε πρώτα το πορτοφόλι για μετατροπή ethUSDC",
+      "withdrawalTime": "⏳ Η ανάληψη διαρκεί ~20-30 λεπτά για να φτάσει στο Ethereum",
+      "bsvOrderInfo": "💡 Η παραγγελία σας θα τοποθετηθεί στην τρέχουσα τιμή BSV + {{buffer}}% buffer. Μόλις οι traders εκπληρώσουν την παραγγελία σας, το BSV θα φτάσει στη διεύθυνση του πορτοφολιού σας Metanet, συνήθως εντός 12 ωρών ή νωρίτερα."
+    },
+    "availableBalance": "Διαθέσιμο: {{balance}} USDC",
+    "feeExplanation": "Τέλος: {{totalFee}}% συνολικά ({{activationFee}}% ενεργοποίηση + {{fillerIncentive}}% κίνητρο πλήρωσης) + ${{transferFee}} τέλη μεταφοράς (2x).",
+    "feeTotal": "Σύνολο με τέλη: {{amount}} USDC"
+  },
+  "send": {
+    "recipientAddress": "Διεύθυνση Παραλήπτη",
+    "sendToMetanet": "Αποστολή στο Υπόλοιπο Metanet",
+    "metanetInfo": "💡 Ανάληψη στο Υπόλοιπο Metanet σας",
+    "icpPrincipal": "ICP Principal:",
+    "notConnected": "Δεν είναι συνδεδεμένο",
+    "buttons": {
+      "sending": "Αποστολή...",
+      "sendEthUSDC": "Αποστολή"
+    },
+    "icrcTransferInfo": "Χρησιμοποιεί άμεση μεταφορά ICRC1 - είστε κάτοχος αυτού του ckUSDC και υπογράφετε τη συναλλαγή",
+    "warnings": {
+      "connectFirst": "⚠️ Συνδέστε πρώτα το πορτοφόλι για αποστολή ethUSDC"
+    },
+    "availableAmount": "Διαθέσιμο: {{amount}} USDC"
+  },
+  "receive": {
+    "title": "Αίτημα από Υπόλοιπο Metanet",
+    "description": "Ζητήστε ckUSDC ΑΠΟ το υπόλοιπο της πλατφόρμας Metanet σας ΣΤΟ πορτοφόλι EasySwap σας",
+    "amountLabel": "Ποσό (ckUSDC)",
+    "buttons": {
+      "requesting": "Αίτημα...",
+      "requestFromMetanet": "Αίτημα από Metanet"
+    },
+    "sdkInfo": "Χρησιμοποιεί SDK sendCommand - Η πλατφόρμα Metanet υπογράφει και στέλνει σε εσάς"
+  },
+  "info": {
+    "compact": "💡 Το EasySwap χρησιμοποιεί ckUSDC για χρηματοδότηση εντολών. Χρηματοδοτήστε τη διεύθυνση Ethereum του EasySwap σας και ανταλλάξτε σε ckUSDC, περιμένετε ±30 λεπτά και χρησιμοποιήστε το ckUSDC για ενεργοποίηση των εντολών σας. Ή χρηματοδοτήστε ckUSDC απευθείας από το υπόλοιπο Metanet σας ή από οποιοδήποτε ανταλλακτήριο Internet Computer Protocol. Εναπόκειται σε εσάς. Δεν ελέγχουμε τα κλειδιά του πορτοφολιού EasySwap σας.",
+    "full": "💡 Το EasySwap χρησιμοποιεί ckUSDC για χρηματοδότηση εντολών. Χρηματοδοτήστε το $USDC του EasySwap σας στο δίκτυο Ethereum και ανταλλάξτε σε ckUSDC στο ICP, περιμένετε ±30 λεπτά και χρησιμοποιήστε το ckUSDC για τοποθέτηση/ενεργοποίηση εντολών. Ή χρηματοδοτήστε ckUSDC απευθείας από το υπόλοιπο Metanet σας ή από οποιοδήποτε ανταλλακτήριο Internet Computer Protocol ώστε να μην χρειάζεται να περιμένετε. Εναπόκειται σε εσάς. Δεν ελέγχουμε τα κλειδιά του πορτοφολιού EasySwap σας."
+  },
+  "treasury": {
+    "title": "Θησαυροφυλάκιο Εφαρμογής",
+    "gasBalance": "Gas (ckETH)",
+    "softwareRoyalty": "Δικαιώματα Λογισμικού",
+    "cycles": "Cycles",
+    "statusOk": "✅ Το Canister πληρώνει προμήθειες gas για αναλήψεις (πληρώνετε σε ckUSDC)",
+    "statusLow": "⚠️ Χαμηλό υπόλοιπο θησαυροφυλακίου - οι αναλήψεις ενδέχεται να αποτύχουν",
+    "royaltyExplanation": "💰 Δικαιώματα Λογισμικού: Προμήθειες που συλλέγονται από τους προγραμματιστές ως αποζημίωση για την ανάπτυξη αυτού του πλήρως αυτόνομου P2P λογισμικού συναλλαγών. Αυτό δεν είναι διαβιβαστής χρημάτων - είναι δικαίωμα για χρήση λογισμικού που επιτρέπει άμεσες peer-to-peer ατομικές ανταλλαγές μεταξύ traders."
+  },
+  "errors": {
+    "walletNotInitialized": "Το πορτοφόλι δεν έχει αρχικοποιηθεί",
+    "principalNotReady": "Το πορτοφόλι δεν έχει αρχικοποιηθεί ή το principal δεν είναι έτοιμο",
+    "invalidAmount": "Παρακαλώ εισάγετε έγκυρο ποσό",
+    "insufficientCkUSDC": "Ανεπαρκές υπόλοιπο ckUSDC",
+    "invalidEthereumAddress": "Μη έγκυρη διεύθυνση Ethereum",
+    "connectWalletFirst": "Παρακαλώ συνδέστε πρώτα το πορτοφόλι σας",
+    "backendNotReady": "Το backend δεν είναι έτοιμο",
+    "minimumAmount": "Το ελάχιστο ποσό είναι {{min}} USDC",
+    "insufficientBalance": "Ανεπαρκές υπόλοιπο. Διαθέσιμο: {{available}} USDC",
+    "maximumAmount": "Το μέγιστο ποσό είναι {{max}} USDC (μέγιστο {{chunks}} τμήματα)",
+    "amountMultiple": "Το ποσό πρέπει να είναι πολλαπλάσιο του {{multiple}} USDC"
+  },
+  "messages": {
+    "copied": "Η διεύθυνση αντιγράφηκε στο πρόχειρο!"
+  },
+  "ethBalanceGas": {
+    "title": "Υπόλοιπο ETH για Gas",
+    "description": "Χρειάζεστε ETH για να πληρώσετε τα τέλη gas κατά τη μετατροπή USDC σε ckUSDC. Βεβαιωθείτε ότι έχετε αρκετό ETH για να καλύψετε τη συναλλαγή."
+  }
+}

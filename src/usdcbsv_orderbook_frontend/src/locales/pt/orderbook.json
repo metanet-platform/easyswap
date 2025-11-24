@@ -1,0 +1,24 @@
+{
+  "title": "Livro de Ordens",
+  "currentBsvPrice": "Preço Atual do BSV:",
+  "orderbookCapacity": "Capacidade do Livro de Ordens:",
+  "filled": "preenchido",
+  "refresh": "Atualizar",
+  "available": "Disponível:",
+  "chunks": "Fragmentos:",
+  "orders": "Ordens:",
+  "loadingOrderbook": "Carregando livro de ordens...",
+  "noOrdersAvailable": "Nenhuma ordem disponível",
+  "amount": "Quantidade",
+  "maxPrice": "Preço Máx.",
+  "bsvApprox": "BSV (~)",
+  "orderId": "ID da Ordem",
+  "orderSingular": "ordem",
+  "orderPlural": "ordens",
+  "availableSuffix": "disponível",
+  "updated": "Atualizado",
+  "orderbookRefreshed": "Livro de ordens atualizado",
+  "errors": {
+    "fetchFailed": "Falha ao carregar livro de ordens"
+  }
+}

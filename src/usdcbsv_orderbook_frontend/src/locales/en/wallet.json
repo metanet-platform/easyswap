@@ -1,0 +1,108 @@
+{
+  "title": "EasySwap Wallet",
+  "openWallet": "Open Wallet",
+  "connectFirst": "Please connect your wallet first",
+  "tabs": {
+    "swap": "Swap",
+    "send": "Send",
+    "receive": "Receive"
+  },
+  "networks": {
+    "ethereum": "Ethereum Network",
+    "icp": "Internet Computer Protocol"
+  },
+  "balances": {
+    "yourEthereumAddress": "Your Ethereum Address",
+    "yourPrincipalAddress": "Your Principal Address",
+    "usdc": "USDC",
+    "ethGas": "ETH (Gas)",
+    "ckUSDC": "ckUSDC"
+  },
+  "swap": {
+    "selectAmount": "Select amount...",
+    "placeholder": "0.00",
+    "bsvDestination": "BSV will be sent to:",
+    "ethereumAddress": "Ethereum Address",
+    "ethereumAddressHelper": "Prefilled with your EasySwap address. You can change it.",
+    "gasFeeLabel": "Gas Fee (in ckUSDC):",
+    "gasFeeAmount": "~$0.40-0.80",
+    "treasuryFeeLabel": "Treasury Fee:",
+    "treasuryFeeAmount": "$0.05",
+    "gasFeeExplanation": "Gas fee covers Ethereum transaction costs (dynamic based on ETH price). Treasury fee covers operational costs (XRC oracle calls, etc.). Canister uses its ckETH to pay actual gas on Ethereum.",
+    "availableBalance": "Available: {{balance}} USDC",
+    "feeExplanation": "Fee: {{totalFee}}% total ({{activationFee}}% activation + {{fillerIncentive}}% filler incentive) + ${{transferFee}} transfer fees (2x).",
+    "feeTotal": "Total with fees: {{amount}} USDC",
+    "buttons": {
+      "converting": "Converting...",
+      "convertToIcp": "Convert to ckUSDC (ICP)",
+      "withdrawing": "Withdrawing...",
+      "withdrawToEth": "Withdraw to ethUSDC",
+      "creatingOrder": "Creating Order...",
+      "swapToBsv": "Swap to BSV"
+    },
+    "warnings": {
+      "connectFirst": "⚠️ Connect wallet first to convert ethUSDC",
+      "withdrawalTime": "⏳ Withdrawal takes ~20-30 minutes to arrive on Ethereum",
+      "bsvOrderInfo": "💡 Your order will be placed at current BSV price + {{buffer}}% buffer. Once traders fulfill your order, BSV will arrive at your Metanet wallet address, typically within 12 hours or sooner."
+    }
+  },
+  "send": {
+    "recipientAddress": "Recipient Address",
+    "sendToMetanet": "Send to Metanet Balance",
+    "metanetInfo": "💡 Withdraw to your Metanet Balance",
+    "icpPrincipal": "ICP Principal:",
+    "notConnected": "Not connected",
+    "availableAmount": "Available: {{amount}} USDC",
+    "buttons": {
+      "sending": "Sending...",
+      "sendEthUSDC": "Send"
+    },
+    "icrcTransferInfo": "Uses direct ICRC1 transfer - you own this ckUSDC and sign the transaction",
+    "warnings": {
+      "connectFirst": "⚠️ Connect wallet first to send ethUSDC"
+    }
+  },
+  "receive": {
+    "title": "Request from Metanet Balance",
+    "description": "Request ckUSDC FROM your Metanet platform balance TO your EasySwap wallet",
+    "amountLabel": "Amount (ckUSDC)",
+    "buttons": {
+      "requesting": "Requesting...",
+      "requestFromMetanet": "Request from Metanet"
+    },
+    "sdkInfo": "Uses SDK sendCommand - Metanet platform signs and sends to you"
+  },
+  "info": {
+    "compact": "💡 EasySwap uses ckUSDC to fund orders. Fund your EasySwap Ethereum address and swap to ckUSDC, wait ±30 minutes and use the ckUSDC to activate your orders. Or fund ckUSDC directly from your Metanet balance or any Internet Computer Protocol exchange. It is up to you. We do not control the keys of your EasySwap wallet.",
+    "full": "💡 EasySwap uses ckUSDC to fund orders. Fund your EasySwap $USDC on the Ethereum network and swap to ckUSDC on the ICP, wait ±30 minutes and use the ckUSDC to place/activate orders. Or fund ckUSDC directly from your Metanet balance or any Internet Computer Protocol exchange so you don't have to wait. It is up to you. We do not control the keys of your EasySwap wallet."
+  },
+  "treasury": {
+    "title": "App Treasury",
+    "gasBalance": "Gas (ckETH)",
+    "softwareRoyalty": "Software Royalty",
+    "cycles": "Cycles",
+    "statusOk": "✅ Canister pays gas fees for withdrawals (you pay in ckUSDC)",
+    "statusLow": "⚠️ Low treasury balance - withdrawals may fail",
+    "royaltyExplanation": "💰 Software Royalty: Fees collected by builders as compensation for developing this fully autonomous P2P trading software. This is not a money transmitter - it's a royalty for software usage that enables direct peer-to-peer atomic swaps between traders."
+  },
+  "errors": {
+    "walletNotInitialized": "Wallet not initialized",
+    "principalNotReady": "Wallet not initialized or principal not ready",
+    "invalidAmount": "Please enter a valid amount",
+    "insufficientCkUSDC": "Insufficient ckUSDC balance",
+    "invalidEthereumAddress": "Invalid Ethereum address",
+    "connectWalletFirst": "Please connect your wallet first",
+    "backendNotReady": "Backend not ready",
+    "minimumAmount": "Minimum amount is {{min}} USDC",
+    "insufficientBalance": "Insufficient balance. Available: {{available}} USDC",
+    "maximumAmount": "Maximum amount is {{max}} USDC ({{chunks}} chunks maximum)",
+    "amountMultiple": "Amount must be a multiple of {{multiple}} USDC"
+  },
+  "messages": {
+    "copied": "Address copied to clipboard!"
+  },
+  "ethBalanceGas": {
+    "title": "ETH Balance for Gas",
+    "description": "You need ETH to pay for gas fees when converting USDC to ckUSDC. Make sure you have enough ETH to cover the transaction."
+  }
+}

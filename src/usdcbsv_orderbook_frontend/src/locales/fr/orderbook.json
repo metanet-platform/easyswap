@@ -1,0 +1,24 @@
+{
+  "title": "Carnet d'Ordres",
+  "currentBsvPrice": "Prix Actuel du BSV:",
+  "orderbookCapacity": "Capacité du Carnet d'Ordres:",
+  "filled": "rempli",
+  "refresh": "Actualiser",
+  "available": "Disponible:",
+  "chunks": "Fragments:",
+  "orders": "Ordres:",
+  "loadingOrderbook": "Chargement du carnet d'ordres...",
+  "noOrdersAvailable": "Aucun ordre disponible",
+  "amount": "Montant",
+  "maxPrice": "Prix Max.",
+  "bsvApprox": "BSV (~)",
+  "orderId": "ID d'Ordre",
+  "orderSingular": "ordre",
+  "orderPlural": "ordres",
+  "availableSuffix": "disponible",
+  "updated": "Mis à jour",
+  "orderbookRefreshed": "Carnet d'ordres actualisé",
+  "errors": {
+    "fetchFailed": "Échec du chargement du carnet d'ordres"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "title": "Recarregar",
+  "amount": "Valor",
+  "dashboard": {
+    "title": "Recarregue Seu Saldo",
+    "subtitle": "Escolha o que você quer recarregar"
+  },
+  "options": {
+    "bsv": {
+      "title": "Recarregar Saldo de BSV",
+      "description": "Envie uma solicitação para trocar ckUSDC por BSV. Os comerciantes fornecerão BSV para sua carteira.",
+      "point1": "Especifique o valor em USD que você quer em BSV",
+      "point2": "Forneça ckUSDC para ativar a solicitação",
+      "point3": "Os comerciantes preenchem sua solicitação com BSV"
+    },
+    "ckusdc": {
+      "title": "Recarregar Saldo de ckUSDC",
+      "description": "Converta USDC do Ethereum para ckUSDC no ICP usando a aba Swap da Carteira.",
+      "point1": "Transfira USDC do Ethereum",
+      "point2": "Use a aba Swap da Carteira para converter",
+      "point3": "Use ckUSDC para enviar solicitações ou negociar"
+    }
+  },
+  "bsvTopUp": {
+    "title": "Recarregar Saldo de BSV",
+    "subtitle": "Envie uma solicitação para receber BSV em troca de ckUSDC"
+  },
+  "ckusdcTopUp": {
+    "title": "Recarregar Saldo de ckUSDC",
+    "subtitle": "Siga estes passos para converter USDC em ckUSDC",
+    "instructionsTitle": "Como recarregar ckUSDC",
+    "step1Title": "Ir para a Página da Carteira",
+    "step1Desc": "Navegue até a página da Carteira usando o menu de navegação na parte inferior da tela.",
+    "goToWallet": "Ir para Carteira",
+    "step2Title": "Encontrar a Aba Swap",
+    "step2Desc": "Na página da Carteira, localize e clique na aba \"Swap\" para acessar a interface de conversão.",
+    "step3Title": "Transferir USDC do Ethereum",
+    "step3Desc": "Você precisará de ETH para taxas de gas e USDC no Ethereum. Transfira-os para o endereço da sua carteira EasySwap mostrado na aba Swap.",
+    "step4Title": "Converter para ckUSDC",
+    "step4Desc": "Siga as instruções da interface de swap para converter seu USDC em ckUSDC. Isso usa o processo de troca descentralizada do ICP.",
+    "step5Title": "Use seu ckUSDC",
+    "step5Desc": "Uma vez convertido, você pode usar ckUSDC para enviar solicitações de recarga de BSV, tornar-se comerciante ou sacar para seu saldo Metanet.",
+    "step6Title": "Converter de Volta para Ethereum (Opcional)",
+    "step6Desc": "Você pode converter ckUSDC de volta para USDC no Ethereum a qualquer momento usando a aba Swap. Simplesmente troque ckUSDC → ETH USDC e forneça QUALQUER endereço Ethereum que desejar - seu endereço EasySwap, uma exchange centralizada ou qualquer outra carteira.",
+    "infoNote": "ckUSDC é um token USDC de chave de cadeia no ICP que permite trocas descentralizadas e integração perfeita com o Livro de Ordens de Recarga BSV totalmente autônomo do EasySwap.",
+    "feesNote": "💡 Taxas específicas para cada operação são exibidas durante o processo de swap."
+  },
+  "form": {
+    "swapTitle": "Trocar USDC por BSV",
+    "swapSubtitle": "Converta seus USDC em Bitcoin SV",
+    "disclaimerLink": "Termos e Condições",
+    "amountLabel": "Quantidade de USDC",
+    "activeOrders": "Você tem pedidos ativos. Complete ou cancele antes de criar novos.",
+    "wantToGet": "Quer Receber",
+    "dollarValueSent": "Valor em Dólares Enviado",
+    "bsvAddressPlaceholder": "Seu endereço BSV",
+    "fetchingPrice": "Buscando preço...",
+    "createButton": "Criar Pedido de Troca",
+    "creating": "Criando...",
+    "afterCreating": "Pedido criado com sucesso! Prossiga para o pagamento.",
+    "orderCreated": "Pedido criado com sucesso",
+    "connectWalletFirst": "Conecte sua carteira primeiro",
+    "enterValidAmount": "Insira uma quantidade válida",
+    "enterValidBsvPrice": "Insira um preço BSV válido",
+    "enterValidBsvAddress": "Insira um endereço BSV válido",
+    "createFailed": "Falha ao criar pedido",
+    "minimumAmount": "O valor mínimo é {{min}} USD",
+    "maximumAmount": "O valor máximo é {{max}} USD",
+    "multipleAmount": "O valor deve ser um múltiplo de {{multiple}} USD",
+    "orderLimitExceeded": "Você pode ter no máximo {{limit}} pedidos ativos",
+    "currentBsvPrice": "Preço atual do BSV: ${{price}}",
+    "toBsvAddress": "Para Endereço BSV",
+    "atMaxBsvPrice": "A Preço Máximo de BSV"
+  },
+  "list": {
+    "noOrders": "Nenhum pedido de recarga encontrado",
+    "subtitle": "Solicitações ativas e parcialmente preenchidas",
+    "viewAllOrders": "Ver Todos os Pedidos"
+  },
+  "status": {
+    "active": "Ativo"
+  }
+}

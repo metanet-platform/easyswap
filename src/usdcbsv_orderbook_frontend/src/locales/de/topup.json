@@ -1,0 +1,83 @@
+{
+  "title": "Aufladen",
+  "amount": "Betrag",
+  "dashboard": {
+    "title": "Guthaben Aufladen",
+    "subtitle": "Wählen Sie aus, was Sie aufladen möchten"
+  },
+  "options": {
+    "bsv": {
+      "title": "BSV-Guthaben Aufladen",
+      "description": "Senden Sie eine Anfrage, um ckUSDC gegen BSV zu tauschen. Händler werden BSV an Ihre Wallet liefern.",
+      "point1": "Geben Sie den USD-Betrag an, den Sie in BSV haben möchten",
+      "point2": "Stellen Sie ckUSDC bereit, um die Anfrage zu aktivieren",
+      "point3": "Händler erfüllen Ihre Anfrage mit BSV"
+    },
+    "ckusdc": {
+      "title": "ckUSDC-Guthaben Aufladen",
+      "description": "Konvertieren Sie USDC von Ethereum zu ckUSDC auf ICP über den Wallet-Swap-Tab.",
+      "point1": "Überweisen Sie USDC von Ethereum",
+      "point2": "Verwenden Sie den Wallet-Swap-Tab zum Konvertieren",
+      "point3": "Verwenden Sie ckUSDC, um Anfragen zu senden oder zu handeln"
+    }
+  },
+  "bsvTopUp": {
+    "title": "BSV-Guthaben Aufladen",
+    "subtitle": "Senden Sie eine Anfrage, um BSV im Austausch für ckUSDC zu erhalten"
+  },
+  "ckusdcTopUp": {
+    "title": "ckUSDC-Guthaben Aufladen",
+    "subtitle": "Folgen Sie diesen Schritten, um USDC in ckUSDC umzuwandeln",
+    "instructionsTitle": "So laden Sie ckUSDC auf",
+    "step1Title": "Zur Wallet-Seite gehen",
+    "step1Desc": "Navigieren Sie zur Wallet-Seite über das Navigationsmenü am unteren Bildschirmrand.",
+    "goToWallet": "Zur Wallet gehen",
+    "step2Title": "Den Swap-Tab finden",
+    "step2Desc": "Auf der Wallet-Seite, lokalisieren Sie und klicken Sie auf den \"Swap\"-Tab, um auf die Konvertierungsschnittstelle zuzugreifen.",
+    "step3Title": "USDC von Ethereum übertragen",
+    "step3Desc": "Sie benötigen ETH für Gasgebühren und USDC auf Ethereum. Übertragen Sie sie an Ihre EasySwap-Wallet-Adresse, die im Swap-Tab angezeigt wird.",
+    "step4Title": "In ckUSDC konvertieren",
+    "step4Desc": "Folgen Sie den Anweisungen der Swap-Schnittstelle, um Ihr USDC in ckUSDC umzuwandeln. Dies verwendet den dezentralen Austauschprozess von ICP.",
+    "step5Title": "Verwenden Sie Ihr ckUSDC",
+    "step5Desc": "Nach der Konvertierung können Sie ckUSDC verwenden, um BSV-Aufladeanfragen zu senden, Händler zu werden oder auf Ihr Metanet-Guthaben abzuheben.",
+    "step6Title": "Zurück zu Ethereum konvertieren (Optional)",
+    "step6Desc": "Sie können ckUSDC jederzeit mit dem Swap-Tab zurück in USDC auf Ethereum konvertieren. Tauschen Sie einfach ckUSDC → ETH USDC und geben Sie JEDE gewünschte Ethereum-Adresse an - Ihre EasySwap-Adresse, eine zentralisierte Börse oder jede andere Wallet.",
+    "infoNote": "ckUSDC ist ein Chain-Key-USDC-Token auf ICP, der dezentrale Swaps und nahtlose Integration mit EasySwaps vollständig autonomem BSV-Auflade-Orderbuch ermöglicht.",
+    "feesNote": "💡 Spezifische Gebühren für jeden Vorgang werden während des Swap-Prozesses angezeigt."
+  },
+  "form": {
+    "swapTitle": "BSV-Guthaben Aufladen",
+    "swapSubtitle": "Geben Sie an, wie viel BSV Sie erhalten möchten",
+    "disclaimerLink": "Lesen Sie die Haftungsausschlüsse, bevor Sie eine Anfrage senden",
+    "amountLabel": "Betrag (USD)",
+    "activeOrders": "Aktive Anfragen",
+    "wantToGet": "Ich möchte erhalten",
+    "dollarValueSent": "Dollar-Wert, der an mein BitcoinSV-Guthaben gesendet wird bei",
+    "bsvAddressPlaceholder": "Ihre BSV-Wallet-Adresse",
+    "fetchingPrice": "Aktueller Preis wird abgerufen...",
+    "createButton": "Anfrage Senden",
+    "creating": "Wird gesendet...",
+    "afterCreating": "Nach dem Senden werden Sie aufgefordert, Ihre Anfrage mit ckUSDC zu finanzieren",
+    "orderCreated": "✨ Anfrage gesendet! Finanzieren Sie sie mit ckUSDC, um sie zu aktivieren und BSV zu erhalten.",
+    "connectWalletFirst": "Bitte verbinden Sie zuerst Ihre Wallet",
+    "enterValidAmount": "Bitte geben Sie einen gültigen Betrag ein",
+    "enterValidBsvPrice": "Bitte geben Sie einen gültigen BSV-Preis ein",
+    "enterValidBsvAddress": "Bitte geben Sie eine gültige BSV-Adresse ein",
+    "createFailed": "Anfrage konnte nicht gesendet werden",
+    "minimumAmount": "Mindestbetrag ist {{min}} USD",
+    "maximumAmount": "Maximalbetrag ist {{max}} USD",
+    "multipleAmount": "Betrag muss ein Vielfaches von {{multiple}} USD sein",
+    "orderLimitExceeded": "Sie können maximal {{limit}} aktive Aufträge haben",
+    "currentBsvPrice": "Aktueller BSV-Preis: ${{price}}",
+    "toBsvAddress": "An BSV-Adresse",
+    "atMaxBsvPrice": "Zu Maximalem BSV-Preis"
+  },
+  "list": {
+    "noOrders": "Noch keine Anfragen. Senden Sie Ihre erste Anfrage oben!",
+    "subtitle": "Aktive und teilweise ausgefüllte Anfragen",
+    "viewAllOrders": "Alle Bestellungen Anzeigen"
+  },
+  "status": {
+    "active": "Aktiv"
+  }
+}

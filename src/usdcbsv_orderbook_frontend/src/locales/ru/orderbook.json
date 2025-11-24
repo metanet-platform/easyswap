@@ -1,0 +1,24 @@
+{
+  "title": "Книга Заказов",
+  "currentBsvPrice": "Текущая Цена BSV:",
+  "orderbookCapacity": "Емкость Книги Ордеров:",
+  "filled": "заполнено",
+  "refresh": "Обновить",
+  "available": "Доступно:",
+  "chunks": "Части:",
+  "orders": "Ордера:",
+  "loadingOrderbook": "Загрузка книги ордеров...",
+  "noOrdersAvailable": "Нет доступных ордеров",
+  "amount": "Сумма",
+  "maxPrice": "Макс. Цена",
+  "bsvApprox": "BSV (~)",
+  "orderId": "ID Ордера",
+  "orderSingular": "ордер",
+  "orderPlural": "ордеров",
+  "availableSuffix": "доступно",
+  "updated": "Обновлено",
+  "orderbookRefreshed": "Книга ордеров обновлена",
+  "errors": {
+    "fetchFailed": "Не удалось загрузить книгу заказов"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "title": "トップアップ",
+  "amount": "金額",
+  "dashboard": {
+    "title": "残高をチャージ",
+    "subtitle": "チャージしたいものを選択してください"
+  },
+  "options": {
+    "bsv": {
+      "title": "BSV残高をチャージ",
+      "description": "ckUSDCをBSVに交換するリクエストを送信してください。トレーダーがあなたのウォレットにBSVを提供します。",
+      "point1": "BSVで欲しいUSD金額を指定",
+      "point2": "リクエストを有効にするためにckUSDCを提供",
+      "point3": "トレーダーがBSVでリクエストを満たす"
+    },
+    "ckusdc": {
+      "title": "ckUSDC残高をチャージ",
+      "description": "ウォレットスワップタブを使用して、EthereumからICPのckUSDCにUSDCを変換します。",
+      "point1": "EthereumからUSDCを転送",
+      "point2": "ウォレットスワップタブを使用して変換",
+      "point3": "ckUSDCを使用してリクエストを送信または取引"
+    }
+  },
+  "bsvTopUp": {
+    "title": "BSV残高をチャージ",
+    "subtitle": "ckUSDCと引き換えにBSVを受け取るリクエストを送信"
+  },
+  "ckusdcTopUp": {
+    "title": "ckUSDC残高をチャージ",
+    "subtitle": "USDCをckUSDCに変換する手順に従ってください",
+    "instructionsTitle": "ckUSDCをチャージする方法",
+    "step1Title": "ウォレットページへ移動",
+    "step1Desc": "画面下部のナビゲーションメニューを使用してウォレットページに移動します。",
+    "goToWallet": "ウォレットへ移動",
+    "step2Title": "スワップタブを見つける",
+    "step2Desc": "ウォレットページで、スワップタブを見つけてクリックし、変換インターフェースにアクセスします。",
+    "step3Title": "EthereumからUSDCを転送",
+    "step3Desc": "ガス料金用のETHとEthereum上のUSDCが必要です。スワップタブに表示されているEasySwapウォレットアドレスに転送してください。",
+    "step4Title": "ckUSDCに変換",
+    "step4Desc": "スワップインターフェースの指示に従って、USDCをckUSDCに変換します。これはICPの分散型交換プロセスを使用します。",
+    "step5Title": "ckUSDCを使用",
+    "step5Desc": "変換後、ckUSDCを使用してBSVチャージリクエストの送信、トレーダーになる、またはMetanet残高への引き出しができます。",
+    "step6Title": "Ethereumに戻す（オプション）",
+    "step6Desc": "スワップタブを使用して、いつでもckUSDCをEthereum上のUSDCに戻すことができます。ckUSDCからETH USDCとスワップし、お好きなEthereumアドレス（EasySwapアドレス、中央集権型取引所、または他のウォレット）を指定してください。",
+    "infoNote": "ckUSDCはICP上のチェーンキーUSDCトークンで、分散型スワップとEasySwapの完全自律型BSVチャージオーダーブックとのシームレスな統合を可能にします。",
+    "feesNote": "💡 各操作の具体的な手数料はスワッププロセス中に表示されます。"
+  },
+  "form": {
+    "swapTitle": "USDCをBSVに交換",
+    "swapSubtitle": "USDCをBitcoin SVに変換",
+    "disclaimerLink": "利用規約",
+    "amountLabel": "USDC金額",
+    "activeOrders": "アクティブな注文があります。新しい注文を作成する前に完了またはキャンセルしてください。",
+    "wantToGet": "受け取りたい",
+    "dollarValueSent": "送信されたドル価値",
+    "bsvAddressPlaceholder": "あなたのBSVアドレス",
+    "fetchingPrice": "価格を取得中...",
+    "createButton": "交換注文を作成",
+    "creating": "作成中...",
+    "afterCreating": "注文が正常に作成されました！支払いに進んでください。",
+    "orderCreated": "注文が正常に作成されました",
+    "connectWalletFirst": "最初にウォレットを接続してください",
+    "enterValidAmount": "有効な金額を入力してください",
+    "enterValidBsvPrice": "有効なBSV価格を入力してください",
+    "enterValidBsvAddress": "有効なBSVアドレスを入力してください",
+    "createFailed": "注文の作成に失敗しました",
+    "minimumAmount": "最小金額は{{min}}ドルです",
+    "maximumAmount": "最大金額は{{max}}ドルです",
+    "multipleAmount": "金額は{{multiple}}ドルの倍数でなければなりません",
+    "orderLimitExceeded": "最大{{limit}}件のアクティブな注文を持つことができます",
+    "currentBsvPrice": "現在のBSV価格：${{price}}",
+    "toBsvAddress": "BSVアドレスへ",
+    "atMaxBsvPrice": "最大BSV価格で"
+  },
+  "list": {
+    "noOrders": "トップアップ注文が見つかりません",
+    "subtitle": "アクティブおよび部分的に完了したリクエスト",
+    "viewAllOrders": "すべての注文を表示"
+  },
+  "status": {
+    "active": "アクティブ"
+  }
+}

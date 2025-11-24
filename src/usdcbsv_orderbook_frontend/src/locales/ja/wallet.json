@@ -1,0 +1,108 @@
+{
+  "title": "EasySwap ウォレット",
+  "openWallet": "ウォレットを開く",
+  "connectFirst": "最初にウォレットを接続してください",
+  "tabs": {
+    "swap": "交換",
+    "send": "送信",
+    "receive": "受信"
+  },
+  "networks": {
+    "ethereum": "Ethereumネットワーク",
+    "icp": "Internet Computer Protocol"
+  },
+  "balances": {
+    "yourEthereumAddress": "あなたのEthereumアドレス",
+    "yourPrincipalAddress": "あなたのPrincipalアドレス",
+    "usdc": "USDC",
+    "ethGas": "ETH（ガス）",
+    "ckUSDC": "ckUSDC"
+  },
+  "swap": {
+    "selectAmount": "金額を選択...",
+    "placeholder": "0.00",
+    "bsvDestination": "BSVは次のアドレスに送信されます：",
+    "ethereumAddress": "Ethereumアドレス",
+    "ethereumAddressHelper": "EasySwapアドレスで事前入力されています。変更できます。",
+    "gasFeeLabel": "ガス手数料（ckUSDC）：",
+    "gasFeeAmount": "~$0.40-0.80",
+    "treasuryFeeLabel": "トレジャリー手数料：",
+    "treasuryFeeAmount": "$0.05",
+    "gasFeeExplanation": "ガス手数料はEthereumトランザクションコストをカバーします（ETH価格に基づき動的）。トレジャリー手数料は運営コストをカバーします（XRCオラクル呼び出しなど）。CanisterはそのckETHを使用してEthereum上の実際のガスを支払います。",
+    "buttons": {
+      "converting": "変換中...",
+      "convertToIcp": "ckUSDC（ICP）に変換",
+      "withdrawing": "出金中...",
+      "withdrawToEth": "ethUSDCに出金",
+      "creatingOrder": "注文作成中...",
+      "swapToBsv": "BSVにスワップ"
+    },
+    "warnings": {
+      "connectFirst": "⚠️ ethUSDCを変換するには最初にウォレットを接続してください",
+      "withdrawalTime": "⏳ 出金がEthereumに到着するまで約20〜30分かかります",
+      "bsvOrderInfo": "💡 ご注文は現在のBSV価格 + {{buffer}}%のバッファで発注されます。トレーダーがご注文を完了すると、BSVは通常12時間以内またはそれより早くMetanetウォレットアドレスに到着します。"
+    },
+    "availableBalance": "利用可能：{{balance}} USDC",
+    "feeExplanation": "手数料：合計 {{totalFee}}%（アクティベーション {{activationFee}}% + フィラーインセンティブ {{fillerIncentive}}%）+ ${{transferFee}} 転送手数料 (2x)。",
+    "feeTotal": "手数料込み合計：{{amount}} USDC"
+  },
+  "send": {
+    "recipientAddress": "受取人アドレス",
+    "sendToMetanet": "Metanet残高に送信",
+    "metanetInfo": "💡 あなたのMetanet残高に出金",
+    "icpPrincipal": "ICP Principal：",
+    "notConnected": "未接続",
+    "buttons": {
+      "sending": "送信中...",
+      "sendEthUSDC": "を送信"
+    },
+    "icrcTransferInfo": "直接ICRC1転送を使用 - あなたがこのckUSDCを所有し、トランザクションに署名します",
+    "warnings": {
+      "connectFirst": "⚠️ ethUSDCを送信するには最初にウォレットを接続してください"
+    },
+    "availableAmount": "利用可能：{{amount}} USDC"
+  },
+  "receive": {
+    "title": "Metanet残高からリクエスト",
+    "description": "あなたのMetanetプラットフォーム残高からあなたのEasySwapウォレットにckUSDCをリクエスト",
+    "amountLabel": "金額（ckUSDC）",
+    "buttons": {
+      "requesting": "リクエスト中...",
+      "requestFromMetanet": "Metanetからリクエスト"
+    },
+    "sdkInfo": "SDK sendCommandを使用 - Metanetプラットフォームが署名してあなたに送信"
+  },
+  "info": {
+    "compact": "💡 EasySwapはckUSDCを使用して注文に資金を提供します。EasySwap Ethereumアドレスに資金を提供してckUSDCにスワップし、約30分待ってckUSDCを使用して注文をアクティベートします。またはMetanet残高またはInternet Computer Protocol取引所から直接ckUSDCに資金を提供します。あなた次第です。私たちはあなたのEasySwapウォレットの鍵を管理していません。",
+    "full": "💡 EasySwapはckUSDCを使用して注文に資金を提供します。Ethereumネットワーク上のEasySwap $USDCに資金を提供してICP上のckUSDCにスワップし、約30分待ってckUSDCを使用して注文を発注/アクティベートします。またはMetanet残高またはInternet Computer Protocol取引所から直接ckUSDCに資金を提供すれば待つ必要はありません。あなた次第です。私たちはあなたのEasySwapウォレットの鍵を管理していません。"
+  },
+  "treasury": {
+    "title": "アプリトレジャリー",
+    "gasBalance": "ガス（ckETH）",
+    "softwareRoyalty": "ソフトウェアロイヤリティ",
+    "cycles": "Cycles",
+    "statusOk": "✅ Canisterは出金のガス手数料を支払います（あなたはckUSDCで支払います）",
+    "statusLow": "⚠️ トレジャリー残高が少なくなっています - 出金が失敗する可能性があります",
+    "royaltyExplanation": "💰 ソフトウェアロイヤリティ：この完全に自律的なP2P取引ソフトウェアの開発に対する補償として開発者が徴収する手数料。これは送金業者ではありません - これはトレーダー間の直接的なピアツーピアアトミックスワップを可能にするソフトウェア使用のロイヤリティです。"
+  },
+  "errors": {
+    "walletNotInitialized": "ウォレットが初期化されていません",
+    "principalNotReady": "ウォレットが初期化されていないかprincipalの準備ができていません",
+    "invalidAmount": "有効な金額を入力してください",
+    "insufficientCkUSDC": "ckUSDC残高が不足しています",
+    "invalidEthereumAddress": "無効なEthereumアドレス",
+    "connectWalletFirst": "最初にウォレットを接続してください",
+    "backendNotReady": "バックエンドの準備ができていません",
+    "minimumAmount": "最小金額は{{min}} USDCです",
+    "insufficientBalance": "残高不足。利用可能：{{available}} USDC",
+    "maximumAmount": "最大金額は{{max}} USDCです（最大{{chunks}}チャンク）",
+    "amountMultiple": "金額は{{multiple}} USDCの倍数でなければなりません"
+  },
+  "messages": {
+    "copied": "アドレスがクリップボードにコピーされました！"
+  },
+  "ethBalanceGas": {
+    "title": "ガス用ETH残高",
+    "description": "USDCをckUSDCに変換する際、ガス料金を支払うためにETHが必要です。トランザクションをカバーするのに十分なETHがあることを確認してください。"
+  }
+}
