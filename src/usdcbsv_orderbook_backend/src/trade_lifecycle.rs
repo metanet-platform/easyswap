@@ -365,8 +365,7 @@ pub async fn submit_bsv_transaction(trade_id: TradeId, raw_tx_hex: String) -> Re
     Ok(())
 }
 
-/// Allow trader to resubmit/edit BSV transaction within first 3 hours of INITIAL submission
-/// Charges 1% penalty and resets claim timer by 3 hours to prevent gaming during volatility
+/// Allow trader to resubmit/edit BSV transaction within first hours of INITIAL submission
 pub async fn resubmit_bsv_transaction(trade_id: TradeId, raw_tx_hex: String) -> Result<(), String> {
     let caller = get_caller();
     let now = get_time();
@@ -394,7 +393,7 @@ pub async fn resubmit_bsv_transaction(trade_id: TradeId, raw_tx_hex: String) -> 
         .ok_or_else(|| "Transaction submission time not found".to_string())?;
     
     if now > initial_submission_time + RESUBMISSION_WINDOW_NS {
-        return Err("Resubmission window expired. You can only resubmit within 3 hours of initial submission.".to_string());
+        return Err("Resubmission window expired. You can only resubmit within hours of initial submission.".to_string());
     }
     
     // Calculate 1% resubmission penalty (of trade amount, not security deposit)

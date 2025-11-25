@@ -124,6 +124,7 @@ fn post_upgrade_canister() {
     ic_cdk::println!("Block storage persisted in stable memory - timer will sync any missing blocks");
     
     start_timers();
+
     
     // Start block sync immediately after upgrade (don't wait 20 minutes)
     // Use one-shot timer to schedule it for next execution round

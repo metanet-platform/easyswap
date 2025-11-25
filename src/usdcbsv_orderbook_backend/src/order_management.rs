@@ -709,67 +709,57 @@ pub async fn cancel_order(order_id: OrderId) -> Result<(), String> {
     
     let now = get_time();
     
-    // All orders created through create_order are now funded immediately
-    // Check if there's any ckUSDC in the subaccount to refund
     ic_cdk::println!("========================================");
     ic_cdk::println!("❌ CANCEL ORDER {}", order_id);
     ic_cdk::println!("   Status: {:?}", order.status);
     ic_cdk::println!("========================================");
     
-    // Calculate refundable amount based on chunks that will be refunded (Available + Idle only)
-    let mut refundable_chunk_amount = 0.0;
-    let mut refundable_chunk_count = 0;
+    // Calculate locked chunks amount (these need to stay in the account)
+    let mut locked_chunk_amount = 0.0;
+    let mut locked_chunk_count = 0;
     
     for chunk_id in order.chunks.iter() {
         if let Some(chunk) = get_chunk(*chunk_id) {
-            // Only refund Available and Idle chunks (not Locked, not Filled, not already Refunded)
-            if matches!(chunk.status, ChunkStatus::Available | ChunkStatus::Idle) {
-                refundable_chunk_amount += chunk.amount_usd;
-                refundable_chunk_count += 1;
+            if chunk.status == ChunkStatus::Locked {
+                locked_chunk_amount += chunk.amount_usd;
+                locked_chunk_count += 1;
             }
         }
     }
     
-    ic_cdk::println!("💰 Refundable chunks: {} chunks = ${:.6}", refundable_chunk_count, refundable_chunk_amount);
+    ic_cdk::println!("� Locked chunks: {} chunks = ${:.6}", locked_chunk_count, locked_chunk_amount);
     
-    // Include filler incentive for refundable chunks
-    let filler_incentive_percent = crate::config::FILLER_INCENTIVE_PERCENT as f64 / 100.0;
-    let refundable_with_incentive = refundable_chunk_amount * (1.0 + filler_incentive_percent);
+    // Calculate amount needed for locked chunks (including filler incentive)
+    let filler_incentive_percent = crate::config::FILLER_INCENTIVE_PERCENT as f64 / 10000.0;
+    let locked_with_incentive = locked_chunk_amount * (1.0 + filler_incentive_percent);
     
-    ic_cdk::println!("💵 Refund amount with filler incentive: ${:.6}", refundable_with_incentive);
+    ic_cdk::println!("💵 Amount reserved for locked chunks (with incentive): ${:.6}", locked_with_incentive);
     
-    if refundable_with_incentive > 0.0 {
-        let refund_amount_e6 = ckusdc_integration::usd_to_ckusdc_e6(refundable_with_incentive);
-        
-        // Check actual balance to verify we have enough
-        match ckusdc_integration::get_order_ckusdc_balance(order.maker, order_id).await {
-            Ok(balance_e6) => {
-                let balance_usd = ckusdc_integration::ckusdc_e6_to_usd(balance_e6);
-                ic_cdk::println!("💰 Order deposit balance: ${:.6}", balance_usd);
+    // Check actual balance in order subaccount
+    match ckusdc_integration::get_order_ckusdc_balance(order.maker, order_id).await {
+        Ok(balance_e6) => {
+            let balance_usd = ckusdc_integration::ckusdc_e6_to_usd(balance_e6);
+            ic_cdk::println!("💰 Order deposit balance: ${:.6}", balance_usd);
+            
+            // Calculate refundable amount = balance - locked_with_incentive
+            let refundable_usd = balance_usd - locked_with_incentive;
+            
+            if refundable_usd > 0.01 { // Only refund if more than 1 cent
+                let refund_amount_e6 = ckusdc_integration::usd_to_ckusdc_e6(refundable_usd);
                 
-                // Transfer ONLY the calculated refundable amount (not the entire balance)
-                // If balance is less than refundable amount, that's an error condition
-                if balance_e6 < refund_amount_e6 {
-                    ic_cdk::println!("⚠️ WARNING: Balance (${:.6}) < Refundable (${:.6}). Transfer may fail.", 
-                        balance_usd, refundable_with_incentive);
-                }
-                
-                // Transfer the calculated refund amount (not min with balance - we want exact amount)
-                let amount_to_refund_e6 = refund_amount_e6;
-                
-                ic_cdk::println!("💸 Transferring refund: ${:.6}", ckusdc_integration::ckusdc_e6_to_usd(amount_to_refund_e6));
+                ic_cdk::println!("💸 Transferring refund: ${:.6}", refundable_usd);
                 
                 match ckusdc_integration::transfer_ckusdc_from_order(
                     order.maker,
                     order_id,
                     order.maker,
                     None, // Maker's default subaccount
-                    amount_to_refund_e6,
+                    refund_amount_e6,
                     Some(format!("Refund O{}", order_id).into_bytes()),
                 ).await {
                     Ok(block_index) => {
                         let net_refund = ckusdc_integration::ckusdc_e6_to_usd(
-                            amount_to_refund_e6.saturating_sub(crate::config::CKUSDC_TRANSFER_FEE)
+                            refund_amount_e6.saturating_sub(crate::config::CKUSDC_TRANSFER_FEE)
                         );
                         ic_cdk::println!("✅ Refunded ${:.6} to maker. Block: {}", net_refund, block_index);
                     },
@@ -778,14 +768,14 @@ pub async fn cancel_order(order_id: OrderId) -> Result<(), String> {
                         // Continue with cancellation even if refund fails
                     }
                 }
-            },
-            Err(e) => {
-                ic_cdk::println!("⚠️ Could not check balance: {}", e);
-                // Continue with cancellation
+            } else {
+                ic_cdk::println!("   No refundable amount (balance needed for locked chunks)");
             }
+        },
+        Err(e) => {
+            ic_cdk::println!("⚠️ Could not check balance: {}", e);
+            // Continue with cancellation
         }
-    } else {
-        ic_cdk::println!("   No refundable chunks - no refund needed");
     }
         
         // Update order status based on what happened

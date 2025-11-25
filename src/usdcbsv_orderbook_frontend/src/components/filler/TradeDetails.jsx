@@ -6,6 +6,14 @@ import { useSDK } from '../../contexts/SDKProvider';
 import { useTheme } from '../../contexts/ThemeContext';
 import { Button, Card, Loader, StatusBadge, Modal, Input } from '../common';
 import { broadcastTransaction } from '../../services/broadcastService';
+import { 
+  SECURITY_DEPOSIT_PERCENT, 
+  RESUBMISSION_PENALTY_PERCENT, 
+  CONFIRMATION_DEPTH,
+  USDC_RELEASE_WAIT_HOURS,
+  TRADE_CLAIM_EXPIRY_HOURS,
+  RESUBMISSION_WINDOW_HOURS
+} from '../../config';
 
 const TradeDetails = ({ tradeId, onClose }) => {
   const { t } = useTranslation(['filler', 'common']);
@@ -636,9 +644,12 @@ const TradeDetails = ({ tradeId, onClose }) => {
             </div>
           </Card>
           
-          {isLocked && trade.locked_chunks && trade.locked_chunks.length > 0 && !hasLockExpired && (
+          {/* Show payment instructions for both locked and submitted states */}
+          {((isLocked && !hasLockExpired) || isAwaitingRelease) && trade.locked_chunks && trade.locked_chunks.length > 0 && (
             <Card className={theme === 'dark' ? 'bg-blue-500/10 border-blue-500/30' : 'bg-blue-50 border-blue-200'}>
-              <h4 className={`text-lg font-semibold mb-4 ${theme === 'dark' ? 'text-blue-300' : 'text-blue-700'}`}>{t('trade.paymentInstructions')}</h4>
+              <h4 className={`text-lg font-semibold mb-2 ${theme === 'dark' ? 'text-blue-300' : 'text-blue-700'}`}>
+                {isAwaitingRelease ? t('trade.submittedPaymentDetails') : t('trade.paymentInstructions')}
+              </h4>
               <div className="space-y-3">
                 {trade.locked_chunks.map((chunk, idx) => (
                   <div key={idx} className={theme === 'dark' ? 'bg-black/30 p-4 rounded-lg' : 'bg-white/80 p-4 rounded-lg border border-gray-200'}>
@@ -655,23 +666,28 @@ const TradeDetails = ({ tradeId, onClose }) => {
                   </div>
                 ))}
               </div>
-              <div className="flex gap-3 mt-4">
-                <Button 
-                  variant="primary" 
-                  onClick={handleSendBsvPayment} 
-                  disabled={submitting}
-                  className="flex-1"
-                >
-                  {submitting ? t('trade.sending') : t('trade.payWithWallet')}
-                </Button>
-                <Button 
-                  variant="secondary" 
-                  onClick={() => setShowSubmitTx(true)} 
-                  className="flex-1"
-                >
-                  {t('trade.manualSubmit')}
-                </Button>
-              </div>
+              <p className={`text-xs mb-3 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+                {t('trade.resubmitExactInstructions')}
+              </p>
+              {isLocked && !hasLockExpired && (
+                <div className="flex gap-3 mt-4">
+                  <Button 
+                    variant="primary" 
+                    onClick={handleSendBsvPayment} 
+                    disabled={submitting}
+                    className="flex-1"
+                  >
+                    {submitting ? t('trade.sending') : t('trade.payWithWallet')}
+                  </Button>
+                  <Button 
+                    variant="secondary" 
+                    onClick={() => setShowSubmitTx(true)} 
+                    className="flex-1"
+                  >
+                    {t('trade.manualSubmit')}
+                  </Button>
+                </div>
+              )}
             </Card>
           )}
           
@@ -684,7 +700,10 @@ const TradeDetails = ({ tradeId, onClose }) => {
                 <div className="flex-1">
                   <h4 className={`font-semibold mb-2 ${theme === 'dark' ? 'text-red-300' : 'text-red-600'}`}>{t('trade.tradeExpired')}</h4>
                   <p className={`text-sm mb-3 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
-                    {t('trade.expiredPenalty', { penalty: (Number(trade.amount_usd) * 0.05).toFixed(2) })}
+                    {t('trade.expiredPenalty', { 
+                      penalty: (Number(trade.amount_usd) * (SECURITY_DEPOSIT_PERCENT / 100)).toFixed(2),
+                      percent: SECURITY_DEPOSIT_PERCENT 
+                    })}
                   </p>
                   <p className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
                     {t('trade.expiredMessage')}
@@ -703,7 +722,7 @@ const TradeDetails = ({ tradeId, onClose }) => {
                 <div className="flex-1">
                   <h4 className={`font-semibold mb-2 ${theme === 'dark' ? 'text-blue-300' : 'text-blue-600'}`}>{t('trade.paymentSubmitted')}</h4>
                   <p className={`text-sm mb-3 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
-                    {t('trade.paymentSubmittedMessage', { bonus: fillerIncentive })}
+                    {t('trade.paymentSubmittedMessage', { bonus: fillerIncentive, confirmDepth: CONFIRMATION_DEPTH })}
                   </p>
                   <div className={`rounded-lg p-3 border ${theme === 'dark' ? 'bg-black/40 border-blue-500/30' : 'bg-white/80 border-blue-200'}`}>
                     <div className="flex items-center justify-between">
@@ -717,11 +736,16 @@ const TradeDetails = ({ tradeId, onClose }) => {
                       <span className={`ml-2 text-xs font-normal ${theme === 'dark' ? 'text-green-400' : 'text-green-500'}`}>({t('trade.includesBonus', { bonus: fillerIncentive })})</span>
                     </p>
                   </div>
-                  
+
                   {/* Compact resubmit option */}
                   <div className={`mt-3 pt-3 border-t ${theme === 'dark' ? 'border-gray-700' : 'border-gray-300'}`}>
                     <p className={`text-xs mb-2 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
-                      {t('trade.resubmitDesc')}
+                      {t('trade.resubmitDesc', { 
+                        penalty: RESUBMISSION_PENALTY_PERCENT,
+                        resubmitWindow: RESUBMISSION_WINDOW_HOURS,
+                        releaseWait: USDC_RELEASE_WAIT_HOURS,
+                        claimExpiry: TRADE_CLAIM_EXPIRY_HOURS
+                      })}
                     </p>
                     <button
                       onClick={() => setShowSubmitTx(true)}
@@ -812,7 +836,12 @@ const TradeDetails = ({ tradeId, onClose }) => {
                 📡 {isAwaitingRelease ? t('trade.resubmitTxTitle') : t('trade.manualTxSubmission')}
               </p>
               <p className={`text-xs ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
-                {isAwaitingRelease ? t('trade.resubmitDescription') : t('trade.manualTxDescription')}
+                {isAwaitingRelease ? t('trade.resubmitDescription', {
+                  penalty: RESUBMISSION_PENALTY_PERCENT,
+                  resubmitWindow: RESUBMISSION_WINDOW_HOURS,
+                  releaseWait: USDC_RELEASE_WAIT_HOURS,
+                  claimExpiry: TRADE_CLAIM_EXPIRY_HOURS
+                }) : t('trade.manualTxDescription')}
               </p>
             </div>
             

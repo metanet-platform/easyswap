@@ -61,8 +61,8 @@ pub const FILLER_INCENTIVE_PERCENT: u64 = 450; // 4.5% reserved for filler bonus
 // Platform takes 2.5% upfront to treasury (ACTIVATION_FEE_PERCENT) non refundable
 // 4.5% stays in order address for filler bonus on filled chunks value (FILLER_INCENTIVE_PERCENT)
 
-// Security deposit percentage (5% of trade amount)
-pub const SECURITY_DEPOSIT_PERCENT: u64 = 5;
+// Security deposit percentage (10% of trade amount)
+pub const SECURITY_DEPOSIT_PERCENT: u64 = 10;
 
 // Maximum lock multiplier - security deposit allows locking this many times the deposit amount
 // With 10% security, allows locking 10x the deposit amount
