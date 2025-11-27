@@ -109,7 +109,7 @@ fn extract_address_from_script(script: &[u8]) -> Result<String, String> {
         return encode_base58_check(script_hash, 0x05); // Mainnet P2SH prefix
     }
     
-    // For now, return hex representation if we can't decode
+    // Unknown script type - return hex representation (valid for non-standard scripts)
     Ok(format!("0x{}", hex::encode(script)))
 }
 

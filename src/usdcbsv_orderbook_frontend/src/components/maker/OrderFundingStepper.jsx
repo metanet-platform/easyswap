@@ -570,8 +570,7 @@ const OrderFundingStepper = ({ order, onFundingComplete, onRefresh, orderDeposit
         toast.loading('Waiting for ckUSDC to arrive...', { id: 'swap' });
       }, 2000);
 
-      // User will need to wait ~20 mins then transfer to order subaccount
-      // For now, show instructions
+      // User waits ~20 mins for ckUSDC to arrive, then transfers to order subaccount
       
     } catch (error) {
       console.error('❌ Swap error:', error);

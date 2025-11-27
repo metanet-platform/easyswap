@@ -226,8 +226,7 @@ fn create_trades_from_chunks(
     
     // Check if we filled enough based on allow_partial
     if !allow_partial && total_filled < requested_usd {
-        // Need to rollback any trades we created
-        // For now, just return error - trades haven't been committed yet
+        // Return error before committing - trades are built in memory and not persisted yet
         return Err(format!(
             "Cannot fill complete order. Requested: ${}, Available: ${}. Set allow_partial=true to proceed.",
             requested_usd,
