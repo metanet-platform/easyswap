@@ -281,6 +281,7 @@ type Result_9 = variant { Ok : TradeAuditResponse; Err : text };
 service : () -> {
   admin_get_orders_audit : (AuditQueryParams) -> (Result_8) query;
   admin_get_trades_audit : (AuditQueryParams) -> (Result_9) query;
+  admin_force_resync : () -> (Result_7);
   admin_toggle_new_orders : (bool) -> (Result_7);
   admin_withdraw_ckusdc_treasury : () -> (Result_1);
   are_new_orders_enabled : () -> (bool) query;

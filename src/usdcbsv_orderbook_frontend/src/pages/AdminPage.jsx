@@ -24,6 +24,8 @@ const AdminPage = () => {
   const [togglingOrders, setTogglingOrders] = useState(false);
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
   const [confirmAction, setConfirmAction] = useState(null);
+  const [resyncResult, setResyncResult] = useState(null);
+  const [loadingResync, setLoadingResync] = useState(false);
 
   const isAdmin = userPrincipal === ADMIN_PRINCIPAL;
 
@@ -164,6 +166,33 @@ const AdminPage = () => {
   const requestToggle = (enable) => {
     setConfirmAction(enable);
     setShowConfirmDialog(true);
+  };
+
+  const handleForceResync = async () => {
+    if (!actor) {
+      toast.error('Not authenticated');
+      return;
+    }
+
+    setLoadingResync(true);
+    setResyncResult(null);
+    try {
+      const result = await actor.admin_force_resync();
+      if ('Ok' in result) {
+        setResyncResult({ success: true, message: result.Ok });
+        toast.success('Block resync completed');
+      } else {
+        setResyncResult({ success: false, message: result.Err });
+        toast.error(result.Err || 'Resync failed');
+      }
+    } catch (error) {
+      console.error('Force resync error:', error);
+      const msg = error.message || 'Failed to force resync';
+      setResyncResult({ success: false, message: msg });
+      toast.error(msg);
+    } finally {
+      setLoadingResync(false);
+    }
   };
 
   // Show access denied if not admin
@@ -451,6 +480,44 @@ const AdminPage = () => {
           </div>
         </Card>
       </div>
+
+      {/* Force Block Resync */}
+      <Card className={`border-cyan-500/30 mb-4 ${theme === 'dark' ? 'bg-cyan-500/5' : 'bg-cyan-50'}`}>
+        <div className="flex flex-col items-start gap-3">
+          <div className="flex items-center gap-3">
+            <div className={`p-2 rounded-lg ${theme === 'dark' ? 'bg-cyan-500/20' : 'bg-cyan-100'}`}>
+              <Activity className={theme === 'dark' ? 'text-cyan-400' : 'text-cyan-600'} size={20} />
+            </div>
+            <div>
+              <h3 className={`text-base font-semibold ${theme === 'dark' ? 'text-cyan-300' : 'text-cyan-700'}`}>
+                Force Block Resync
+              </h3>
+              <p className={`text-xs mt-1 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+                Attempts normal sync first. If it fails and the chain tip is more than 288 blocks ahead, wipes stored blocks and re-syncs from tip.
+              </p>
+            </div>
+          </div>
+
+          <Button
+            variant="primary"
+            onClick={handleForceResync}
+            disabled={loadingResync}
+            className="w-full bg-cyan-600 hover:bg-cyan-700"
+          >
+            {loadingResync ? 'Resyncing blocks...' : 'Force Resync Blocks'}
+          </Button>
+
+          {resyncResult && (
+            <div className={`w-full rounded p-3 border text-sm font-mono break-all ${
+              resyncResult.success
+                ? (theme === 'dark' ? 'bg-green-900/30 border-green-500/30 text-green-300' : 'bg-green-50 border-green-300 text-green-800')
+                : (theme === 'dark' ? 'bg-red-900/30 border-red-500/30 text-red-300' : 'bg-red-50 border-red-300 text-red-800')
+            }`}>
+              {resyncResult.message}
+            </div>
+          )}
+        </div>
+      </Card>
 
       {/* Admin Events Log */}
       <Card className={`border-purple-500/30 ${theme === 'dark' ? 'bg-purple-500/5' : 'bg-purple-50'}`}>

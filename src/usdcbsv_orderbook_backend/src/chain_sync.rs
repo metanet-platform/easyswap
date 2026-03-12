@@ -516,6 +516,66 @@ async fn check_and_handle_reorg(_consensus_tip: &BlockInfo) -> Result<ReorgResul
     }
 }
 
+/// Admin-triggered force resync.
+/// Tries a normal sync first. If that fails, checks whether the consensus
+/// tip is more than MAX_BLOCKS_TO_KEEP blocks ahead of our last stored block.
+/// If so, wipes all stored blocks and performs a fresh initial_sync of the
+/// last MAX_BLOCKS_TO_KEEP blocks from the tip.
+pub async fn admin_force_resync() -> Result<SyncResult, String> {
+    // First, attempt normal sync
+    match sync_blocks().await {
+        Ok(result) => return Ok(result),
+        Err(normal_err) => {
+            ic_cdk::println!(
+                "⚠️ Normal sync failed: {}. Checking if gap-reset is appropriate...",
+                normal_err
+            );
+
+            // Fetch the consensus tip to measure the gap
+            let consensus_result = find_consensus_tip().await.map_err(|e| {
+                format!(
+                    "Normal sync failed: {}. Then tip fetch also failed: {}. Cannot resync.",
+                    normal_err, e
+                )
+            })?;
+
+            let consensus_tip = &consensus_result.tip;
+            let our_highest = get_highest_block();
+            let gap = consensus_tip.height.saturating_sub(our_highest);
+
+            ic_cdk::println!(
+                "Gap analysis: consensus tip={}, our highest={}, gap={}, threshold={}",
+                consensus_tip.height, our_highest, gap, MAX_BLOCKS_TO_KEEP
+            );
+
+            if gap <= MAX_BLOCKS_TO_KEEP {
+                return Err(format!(
+                    "Normal sync failed: {}. Gap is only {} blocks (threshold {}), not large enough for reset. Fix the underlying issue.",
+                    normal_err, gap, MAX_BLOCKS_TO_KEEP
+                ));
+            }
+
+            // Gap exceeds retention window — old blocks are useless anyway
+            ic_cdk::println!(
+                "🔄 Gap {} exceeds MAX_BLOCKS_TO_KEEP ({}). Clearing all stored blocks and performing fresh initial sync.",
+                gap, MAX_BLOCKS_TO_KEEP
+            );
+
+            remove_blocks_from(0);
+
+            create_admin_event(AdminEventType::BlockInsertionError {
+                block_height: our_highest,
+                error_message: format!(
+                    "Admin force-resync: cleared blocks (was {} blocks behind). Re-syncing last {} from tip {}.",
+                    gap, MAX_BLOCKS_TO_KEEP, consensus_tip.height
+                ),
+            });
+
+            initial_sync(consensus_result).await
+        }
+    }
+}
+
 /// Get sync status
 pub fn get_sync_status() -> SyncStatus {
     let (min, max) = get_stored_range();

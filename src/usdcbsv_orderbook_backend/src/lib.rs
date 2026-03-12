@@ -411,6 +411,29 @@ async fn admin_withdraw_ckusdc_treasury() -> Result<candid::Nat, String> {
     withdrawal_treasury::admin_withdraw_ckusdc_treasury().await
 }
 
+// ===== BLOCK SYNC ADMIN =====
+
+#[update]
+async fn admin_force_resync() -> Result<String, String> {
+    let caller = ic_cdk::caller();
+    let admin = state::get_admin();
+
+    if caller != admin {
+        return Err("Only admin can force resync".to_string());
+    }
+
+    match chain_sync::admin_force_resync().await {
+        Ok(result) => {
+            block_headers::update_sync_time(ic_cdk::api::time() / 1_000_000_000);
+            Ok(format!(
+                "Resync complete: {} blocks added, {} removed, tip height {}",
+                result.blocks_added, result.blocks_removed, result.new_tip_height
+            ))
+        }
+        Err(e) => Err(e),
+    }
+}
+
 // ===== EMERGENCY CONTROLS =====
 
 #[query]
